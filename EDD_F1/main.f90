@@ -7,7 +7,7 @@ program main
 
 contains
     subroutine MainMenu()
-
+        print*, ' '
         print*, '1. Parametros inciales'
         print*, '2. Ejecutar paso'
         print*, '3. Estado de memoria de la estructura'
