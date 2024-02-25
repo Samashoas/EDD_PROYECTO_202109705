@@ -1,4 +1,5 @@
 program main
+    use json_loader
     implicit none
     integer :: choice
 
@@ -24,13 +25,13 @@ contains
                     call menuParam()
                     exit
                 case(2)
-                    call MenuPasos
+                    call MenuPasos()
                     exit
                 case(3)
-                    call MenuMemoria
+                    call MenuMemoria()
                     exit
                 case(4)
-                    call MenuReportes
+                    call MenuReportes()
                     exit
                 case(5)
                     print*, '---Datos del estudiante---'
@@ -47,8 +48,8 @@ contains
     end subroutine MainMenu
 
     subroutine menuParam()
-        print*, '1. Carga masiva de clientes'
-        print*, '2. Cantidad de ventanillas'
+        print*, '1. Cargar clientes'
+        print*, '2. Ingresar ventanillas'
         print*, '3. regresar'
 
         do
@@ -58,7 +59,7 @@ contains
 
             select case(choice)
                 case(1)
-                    print *, 'Aun trabjando opcion 1'
+                    call LoadJson()
                 case(2)
                     print *, 'Aun trabajando opcion 2'
                 case(3)
