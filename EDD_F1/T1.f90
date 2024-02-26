@@ -1,7 +1,8 @@
 module json_loader
     use json_module
+    use cola_module
     implicit none
-
+    
 contains
 
     subroutine LoadJson()
@@ -56,6 +57,7 @@ contains
                 print *, 'Imagenes grandes: ', trim(img_g)
                 print *, 'imagenes pequenas: ', trim(img_p)
                 print *, ' '
+
             end if
         end do
 
@@ -64,6 +66,5 @@ contains
         print*, '2. Ingresar ventanillas'
         print*, '3. regresar'
 
-        call json%destroy()
     end subroutine
 end module json_loader

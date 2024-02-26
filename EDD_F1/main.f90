@@ -1,8 +1,8 @@
 program main
     use json_loader
+    use cola_module
     implicit none
     integer :: choice
-
     call MainMenu()
 
 contains
@@ -76,7 +76,27 @@ contains
     end subroutine MenuPasos
 
     subroutine MenuMemoria
-        print*, 'Trabajando en ello'
+        use cola_module
+    implicit none
+
+    type(cola) :: my_cola
+
+        call my_cola%append(1)
+        call my_cola%append(2)
+        call my_cola%append(3)
+        call my_cola%append(4)
+        call my_cola%append(5)
+
+        call my_cola%print()
+
+        call my_cola%delete()
+        call my_cola%delete()
+        call my_cola%delete()
+        call my_cola%delete()
+        call my_cola%delete()
+        call my_cola%delete()
+
+        call my_cola%print()
     end subroutine MenuMemoria
 
     subroutine MenuReportes
