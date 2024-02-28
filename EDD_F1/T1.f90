@@ -3,6 +3,7 @@ module json_loader
     use cola_module
     implicit none
     
+    type(cola) :: my_cola
 contains
 
     subroutine LoadJson()
@@ -56,15 +57,15 @@ contains
                 print *, 'nombre: ', trim(nombre)
                 print *, 'Imagenes grandes: ', trim(img_g)
                 print *, 'imagenes pequenas: ', trim(img_p)
+                call my_cola%append(trim(id))
                 print *, ' '
-
             end if
         end do
 
         print*, (' ')
         print*, '1. Cargar clientes'
         print*, '2. Ingresar ventanillas'
-        print*, '3. regresar'
+        print*, '3. regresar' 
 
     end subroutine
 end module json_loader

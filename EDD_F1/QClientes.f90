@@ -4,7 +4,7 @@ module cola_module
 
     type, public :: node
         private
-        integer :: value
+        character(100) :: value
         type(node), pointer :: next     
     end type node
 
@@ -21,7 +21,7 @@ module cola_module
 contains
     subroutine append(this, value)
         class(cola), intent(inout) :: this
-        integer, intent(in) :: value
+        character, intent(in) :: value
 
         type(node), pointer :: temp
         allocate(temp)
