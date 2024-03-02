@@ -19,12 +19,13 @@ module cola_module
         procedure :: append
         procedure :: delete
         procedure :: print
+        procedure :: graficar
     end type cola
 
 contains
     subroutine append(this, id, nombre, img_g, img_p)
         class(cola), intent(inout) :: this
-        character(len =*), intent(in) :: id, nombre, img_g, img_p
+        character(len=*), intent(in) :: id, nombre, img_g, img_p
 
         type(node), pointer :: temp
         allocate(temp)
@@ -71,11 +72,54 @@ contains
         print *, '//-----------------//'
 
         do while (associated(current))
-            print*, current%id
-            print *, current%nombre
-            print *, current%img_g
-            print *, current%img_p
+            print *, 'id: ', current%id
+            print *, 'nombre: ', current%nombre
+            print *, 'Imagenes grandes: ', current%img_g
+            print *, 'imagenes pequenas: ', current%img_p
             current => current%next
         end do 
     end subroutine print
+
+    subroutine graficar(this, filename)
+        class(cola), intent(in) :: this
+        character(len=*), intent(in) :: filename
+    
+        integer :: unit
+        type(node), pointer :: current
+        integer :: count
+        character(len=10) :: count_str
+        character(len=10) :: count_next_str
+    
+        ! Abrir el archivo DOT
+        open(unit, file=filename, status='replace')
+        write(unit, *) 'digraph Queue {'
+        write(unit, *) '    node [shape=box, style=filled, color=blue, fillcolor=pink];' ! Aplicar atributos a todos los nodos
+        ! Escribir nodos y conexiones
+        current => this%head
+        count = 0
+        do while (associated(current))
+            count = count + 1
+            ! Convert count to character string
+            write(count_str, '(I0)') count
+            ! Construct label with all elements
+            write(unit, '(A)') '    "Node' // trim(adjustl(count_str)) // '" [label="Nombre: ' // &
+                                trim(current%nombre) // '\nId: ' // trim(current%id) // &
+                                '\nimg_g: ' // trim(current%img_g) // '\nimg_p: ' // trim(current%img_p) // '"];'
+            if (associated(current%next)) then
+                ! Convert count+1 to character string
+                write(count_next_str, '(I0)') count + 1
+                write(unit, '(A)') '    "Node' // trim(adjustl(count_str)) // '" -> "Node' // trim(adjustl(count_next_str)) // '";'
+            end if
+            current => current%next
+        end do 
+    
+        ! Cerrar el archivo DOT
+        write(unit, *) '}'
+        close(unit)
+    
+        ! Generar el archivo PNG utilizando Graphviz
+        call system('dot -Tpng ' // trim(filename) // ' -o ' // trim(adjustl(filename)) // '.png')
+    
+        print *, 'Graphviz file generated: ', trim(adjustl(filename)) // '.png'
+    end subroutine graficar    
 end module cola_module

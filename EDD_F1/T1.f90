@@ -59,6 +59,7 @@ contains
                 print *, 'imagenes pequenas: ', trim(img_p)
                 call my_cola%append(trim(id), trim(nombre), trim(img_g), trim(img_p))
                 print *, ' '
+                call my_cola%graficar('cola.dot')
             end if
         end do
 
