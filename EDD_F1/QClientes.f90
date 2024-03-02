@@ -4,7 +4,10 @@ module cola_module
 
     type, public :: node
         private
-        character(100) :: value
+        character(100) :: id
+        character(100) :: nombre
+        character(100) :: img_g
+        character(100) :: img_p
         type(node), pointer :: next     
     end type node
 
@@ -19,13 +22,16 @@ module cola_module
     end type cola
 
 contains
-    subroutine append(this, value)
+    subroutine append(this, id, nombre, img_g, img_p)
         class(cola), intent(inout) :: this
-        character, intent(in) :: value
+        character(len =*), intent(in) :: id, nombre, img_g, img_p
 
         type(node), pointer :: temp
         allocate(temp)
-        temp%value = value
+        temp%id = id
+        temp%nombre = nombre
+        temp%img_g = img_g
+        temp%img_p = img_p
         temp%next => null()
 
         if (.not. associated(this%head)) then
@@ -36,7 +42,7 @@ contains
             this%tail => temp
         end if
 
-        print *, 'Append ', value
+        print *, 'Append ', nombre
     end subroutine append
 
     subroutine delete(this)
@@ -48,7 +54,7 @@ contains
             return
         end if
 
-        print *, 'Delete ', this%head%value
+        print *, 'Delete ', this%head%nombre
         temp => this%head
         this%head => this%head%next
         deallocate(temp)
@@ -65,7 +71,10 @@ contains
         print *, '//-----------------//'
 
         do while (associated(current))
-            print *, current%value
+            print*, current%id
+            print *, current%nombre
+            print *, current%img_g
+            print *, current%img_p
             current => current%next
         end do 
     end subroutine print

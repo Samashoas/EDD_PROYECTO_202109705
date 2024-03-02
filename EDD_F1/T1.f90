@@ -7,7 +7,7 @@ module json_loader
 contains
 
     subroutine LoadJson()
-        character(len=100) :: filename
+        character(len=1000) :: filename
         type(json_file) :: json   
         type(json_value), pointer :: listPointer, personPointer, attributePointer  
         type(json_core) :: jsonc  
@@ -57,7 +57,7 @@ contains
                 print *, 'nombre: ', trim(nombre)
                 print *, 'Imagenes grandes: ', trim(img_g)
                 print *, 'imagenes pequenas: ', trim(img_p)
-                call my_cola%append(trim(id))
+                call my_cola%append(trim(id), trim(nombre), trim(img_g), trim(img_p))
                 print *, ' '
             end if
         end do
