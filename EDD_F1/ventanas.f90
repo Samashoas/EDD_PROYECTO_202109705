@@ -16,6 +16,7 @@ module ventana_mod
         procedure :: print
         procedure :: delete
         procedure :: search
+        procedure :: graficar
     end type linked_list
 
     contains
@@ -141,7 +142,9 @@ module ventana_mod
         do i = 1, num_ventanas
             call windows%append(i)
         end do
-        
+
+            call windows%graficar('ventanas.dot', 'Ventanilas')
+
         if (num_ventanas == 1) then
             write(*, '(A, I0, A)', advance='no') 'Se ha ingresado: ', num_ventanas, ' ventana'
             print*, (' ')
@@ -155,5 +158,40 @@ module ventana_mod
         print*, '2. Ingresar ventanillas'
         print*, '3. regresar'
     end subroutine numWin
+
+    subroutine graficar(this, filename, title)
+        class(linked_list), intent(in) :: this
+        character(len=*), intent(in) :: filename
+        character(len=*), intent(in) :: title
+
+        integer :: unit
+        type(node), pointer :: current
+        integer :: count
+
+        open(unit, file=filename, status='replace')
+        write(unit, *) 'digraph Linked_List {'
+        write(unit, '(A)') '    labelloc="t";'
+        write(unit, '(A)') '    label= "' //trim(title) //'";'
+        write(unit, *) '    rankdir=LR;'
+        write(unit, *) ' node [shape=box, style=filled, color=blue, fillcolor=pink];'
+        
+        current => this%head
+        count = 0
+        do while (associated(current))
+            count = count + 1
+            write(unit, *) '    "Node', count, '" [label="Ventanilla: ', current%value, '"];'
+            if (associated(current%next)) then
+                write(unit, *) '    "Node', count, '" -> "Node', count+1, '";'
+            end if
+            current => current%next
+        end do 
+
+        write(unit, *) '}'
+        close(unit)
+
+        call system('dot -Tpng ' // trim(filename) // ' -o ' // trim(adjustl(filename)) // '.png')
+
+        print *, 'Graphviz file generated: ', trim(adjustl(filename)) // '.png'
+    end subroutine graficar
 
 end module ventana_mod
