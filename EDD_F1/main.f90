@@ -1,6 +1,7 @@
 program main
     use json_loader
     use cola_module
+    use ventana_mod
     implicit none
     integer :: choice
     call MainMenu()
@@ -61,7 +62,7 @@ contains
                 case(1)
                     call LoadJson()
                 case(2)
-                    print *, 'Aun trabajando opcion 2'
+                    call numWin()
                 case(3)
                     call MainMenu()
                     exit
