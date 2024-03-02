@@ -11,7 +11,7 @@ contains
         type(json_file) :: json   
         type(json_value), pointer :: listPointer, personPointer, attributePointer  
         type(json_core) :: jsonc  
-        character(:), allocatable :: id, nombre, img_p, img_g  
+        character(len=:), allocatable :: id, nombre, img_p, img_g  
 
         integer :: i, size 
         logical :: found
