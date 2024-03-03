@@ -14,7 +14,8 @@ contains
         print*, '3. Estado de memoria de la estructura'
         print*, '4. Reportes'
         print*, '5. Acerca de: '
-        print*, '6. Salir'
+        print*, '6. Registro de operaciones'
+        print*, '7. Salir'
 
         do
             write (*, '(A, I0, A)', advance='no') 'Seleccione una opcion: '
@@ -27,19 +28,18 @@ contains
                     exit
                 case(2)
                     call MenuPasos()
-                    exit
                 case(3)
                     call MenuMemoria()
-                    exit
                 case(4)
                     call MenuReportes()
-                    exit
                 case(5)
                     print*, '---Datos del estudiante---'
                     print*, ' Juan Pablo Samayoa Ruiz '
                     print*, '       202109705         '
                     print*, '--------------------------'
                 case(6)
+                    call MenuMemoria()
+                case(7)
                     print*, 'ADIOS!'
                     exit
                 case default
@@ -74,14 +74,17 @@ contains
 
     subroutine MenuPasos
         print*, 'Trabajando en ello'
+        call MainMenu()
     end subroutine MenuPasos
 
     subroutine MenuMemoria
         print*, 'Trabajando en ello'
+        call MainMenu()
     end subroutine MenuMemoria
 
     subroutine MenuReportes
         print*, 'Trabajando en ello'
+        call MainMenu()
     end subroutine MenuReportes
 
 end program main
