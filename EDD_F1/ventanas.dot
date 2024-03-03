@@ -8,6 +8,4 @@
      "Node           2 " [label="Ventanilla:            2 "];
      "Node           2 " -> "Node           3 ";
      "Node           3 " [label="Ventanilla:            3 "];
-     "Node           3 " -> "Node           4 ";
-     "Node           4 " [label="Ventanilla:            4 "];
  }
