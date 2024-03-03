@@ -19,7 +19,6 @@ module LCD_list
         procedure :: append
         procedure :: print
         procedure :: delete
-        procedure :: graficar
     end type linked_list
 
 contains
@@ -104,40 +103,5 @@ end subroutine append
             print *, "No se ha encontrado el valor: ", nombre
         end if
     end subroutine delete
-    
-    subroutine graficar(this, filename)
-        class(linked_list), intent(in) :: this
-        character(len=*), intent(in) :: filename
-        integer :: unit
-        type(node), pointer :: current
-        integer :: count
-        character(len=10) :: count_str
-        character(len=10) :: count_next_str
-
-        open(unit, file=filename, status='replace')
-        write(unit, *) 'digraph Linked_List {'
-        write(unit, *) '    node [shape=box, style=filled, color=blue, fillcolor=pink];' 
-
-        current => this%head
-        count = 0
-        do while (associated(current))
-            count = count + 1
-            write(count_str, '(I0)') count
-            write(unit, '(A)') '    "Node' // trim(adjustl(count_str)) // '" [label="ID: ' // trim(current%id) // &
-                                '\nNombre: ' // trim(current%nombre) // '\nImg_g: ' // trim(current%img_g) // &
-                                '\nImg_p: ' // trim(current%img_p) // '"];'
-            if (associated(current%next)) then
-                write(count_next_str, '(I0)') count + 1
-                write(unit, '(A)') '    "Node' // trim(adjustl(count_str)) // '" -> "Node' // trim(adjustl(count_next_str)) // '";'
-            end if
-            current => current%next
-        end do 
-
-        write(unit, *) '}'
-        close(unit)
-
-        call system('dot -Tpng "' // trim(filename) // '" -o "' // trim(filename) // '.png"')
-
-        print *, 'Graphviz file generated: ', trim(filename) // '.png'
-    end subroutine graficar    
+        
 end module LCD_list

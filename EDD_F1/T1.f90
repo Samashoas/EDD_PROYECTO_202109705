@@ -72,7 +72,6 @@ contains
                 print *, ' '
                 print *, 'Agregando a la lista doblemente enlazada'
                 call lcd_list%append(trim(id), trim(nombre), trim(img_g), trim(img_p))
-                call lcd_list%graficar('lcd_list.dot')
                 print *, ' '
             end if
         end do

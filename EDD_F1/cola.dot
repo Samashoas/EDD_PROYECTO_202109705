@@ -1,4 +1,22 @@
  digraph Queue {
      node [shape=box, style=filled, color=blue, fillcolor=pink];
     "Node1" [label="Nombre: Juan Perez\nId: 1\nimg_g: 1\nimg_p: 3"];
+    "Node1" -> "Node2";
+    "Node2" [label="Nombre: Maria Garcia\nId: 2\nimg_g: 2\nimg_p: 2"];
+    "Node2" -> "Node3";
+    "Node3" [label="Nombre: Carlos Lopez\nId: 3\nimg_g: 1\nimg_p: 1"];
+    "Node3" -> "Node4";
+    "Node4" [label="Nombre: Laura Rodriguez\nId: 4\nimg_g: 1\nimg_p: 3"];
+    "Node4" -> "Node5";
+    "Node5" [label="Nombre: Pedro Sanchez\nId: 5\nimg_g: 2\nimg_p: 2"];
+    "Node5" -> "Node6";
+    "Node6" [label="Nombre: Ana Martinez\nId: 6\nimg_g: 1\nimg_p: 1"];
+    "Node6" -> "Node7";
+    "Node7" [label="Nombre: Diego Fernandez\nId: 7\nimg_g: 3\nimg_p: 1"];
+    "Node7" -> "Node8";
+    "Node8" [label="Nombre: Sofia Ramirez\nId: 8\nimg_g: 2\nimg_p: 2"];
+    "Node8" -> "Node9";
+    "Node9" [label="Nombre: Elena Gonzalez\nId: 9\nimg_g: 1\nimg_p: 1"];
+    "Node9" -> "Node10";
+    "Node10" [label="Nombre: Antonio Jimenez\nId: 10\nimg_g: 1\nimg_p: 3"];
  }
