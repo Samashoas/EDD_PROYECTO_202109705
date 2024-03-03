@@ -2,10 +2,12 @@ module json_loader
     use json_module
     use cola_module
     use pila_module
+    use lcd_list
     implicit none
     
     type(cola) :: my_cola
     type(pila) :: my_pila
+    type(linked_list) :: lcd_list
 contains
 
     subroutine LoadJson()
@@ -67,6 +69,10 @@ contains
                 print *, 'Agregando a la pila '
                 call my_pila%push(trim(img_g), trim(img_p), trim(nombre))
                 call my_pila%graficar('pila.dot')
+                print *, ' '
+                print *, 'Agregando a la lista doblemente enlazada'
+                call lcd_list%append(trim(id), trim(nombre), trim(img_g), trim(img_p))
+                call lcd_list%graficar('lcd_list.dot')
                 print *, ' '
             end if
         end do
