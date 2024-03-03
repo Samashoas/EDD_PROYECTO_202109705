@@ -1,0 +1,49 @@
+ digraph Pile {
+     node [shape=box, style=filled, color=blue, fillcolor=pink];
+     subgraph cluster_imgg {
+         label="IMG GRANDE";
+         color=lightgrey;
+         "Node           1 _imgg" [label="Antonio Jimenez\n1"];
+         "Node           2 _imgg" [label="Elena Gonzalez\n1"];
+         "Node           1 _imgg" -> "Node           2 _imgg";
+         "Node           3 _imgg" [label="Sofia Ramirez\n2"];
+         "Node           2 _imgg" -> "Node           3 _imgg";
+         "Node           4 _imgg" [label="Diego Fernandez\n3"];
+         "Node           3 _imgg" -> "Node           4 _imgg";
+         "Node           5 _imgg" [label="Ana Martinez\n1"];
+         "Node           4 _imgg" -> "Node           5 _imgg";
+         "Node           6 _imgg" [label="Pedro Sanchez\n2"];
+         "Node           5 _imgg" -> "Node           6 _imgg";
+         "Node           7 _imgg" [label="Laura Rodriguez\n1"];
+         "Node           6 _imgg" -> "Node           7 _imgg";
+         "Node           8 _imgg" [label="Carlos Lopez\n1"];
+         "Node           7 _imgg" -> "Node           8 _imgg";
+         "Node           9 _imgg" [label="Maria Garcia\n2"];
+         "Node           8 _imgg" -> "Node           9 _imgg";
+         "Node          10 _imgg" [label="Juan Perez\n1"];
+         "Node           9 _imgg" -> "Node          10 _imgg";
+     }
+     subgraph cluster_imgp {
+         label="IMG PEQUEÑA";
+         color=lightgrey;
+         "Node           1 _imgp" [label="Antonio Jimenez\n3"];
+         "Node           2 _imgp" [label="Elena Gonzalez\n1"];
+         "Node           1 _imgp" -> "Node           2 _imgp";
+         "Node           3 _imgp" [label="Sofia Ramirez\n2"];
+         "Node           2 _imgp" -> "Node           3 _imgp";
+         "Node           4 _imgp" [label="Diego Fernandez\n1"];
+         "Node           3 _imgp" -> "Node           4 _imgp";
+         "Node           5 _imgp" [label="Ana Martinez\n1"];
+         "Node           4 _imgp" -> "Node           5 _imgp";
+         "Node           6 _imgp" [label="Pedro Sanchez\n2"];
+         "Node           5 _imgp" -> "Node           6 _imgp";
+         "Node           7 _imgp" [label="Laura Rodriguez\n3"];
+         "Node           6 _imgp" -> "Node           7 _imgp";
+         "Node           8 _imgp" [label="Carlos Lopez\n1"];
+         "Node           7 _imgp" -> "Node           8 _imgp";
+         "Node           9 _imgp" [label="Maria Garcia\n2"];
+         "Node           8 _imgp" -> "Node           9 _imgp";
+         "Node          10 _imgp" [label="Juan Perez\n3"];
+         "Node           9 _imgp" -> "Node          10 _imgp";
+     }
+ }

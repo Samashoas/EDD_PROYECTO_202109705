@@ -1,9 +1,11 @@
 module json_loader
     use json_module
     use cola_module
+    use pila_module
     implicit none
     
     type(cola) :: my_cola
+    type(pila) :: my_pila
 contains
 
     subroutine LoadJson()
@@ -57,9 +59,15 @@ contains
                 print *, 'nombre: ', trim(nombre)
                 print *, 'Imagenes grandes: ', trim(img_g)
                 print *, 'imagenes pequenas: ', trim(img_p)
-                call my_cola%append(trim(id), trim(nombre), trim(img_g), trim(img_p))
                 print *, ' '
+                print *, 'Agregando a la cola...'
+                call my_cola%append(trim(id), trim(nombre), trim(img_g), trim(img_p))
                 call my_cola%graficar('cola.dot')
+                print *, ' '
+                print *, 'Agregando a la pila '
+                call my_pila%push(trim(img_g), trim(img_p), trim(nombre))
+                call my_pila%graficar('pila.dot')
+                print *, ' '
             end if
         end do
 
