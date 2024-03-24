@@ -20,7 +20,7 @@
          "Node           7 _imgg" -> "Node           8 _imgg";
          "Node           9 _imgg" [label="Maria Garcia\n2"];
          "Node           8 _imgg" -> "Node           9 _imgg";
-         "Node          10 _imgg" [label="Juan Perez\n1"];
+         "Node          10 _imgg" [label="Calificacion 1\n1"];
          "Node           9 _imgg" -> "Node          10 _imgg";
      }
      subgraph cluster_imgp {
@@ -43,7 +43,7 @@
          "Node           7 _imgp" -> "Node           8 _imgp";
          "Node           9 _imgp" [label="Maria Garcia\n2"];
          "Node           8 _imgp" -> "Node           9 _imgp";
-         "Node          10 _imgp" [label="Juan Perez\n3"];
+         "Node          10 _imgp" [label="Calificacion 1\n3"];
          "Node           9 _imgp" -> "Node          10 _imgp";
      }
  }

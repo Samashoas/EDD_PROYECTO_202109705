@@ -1,6 +1,6 @@
  digraph Queue {
      node [shape=box, style=filled, color=blue, fillcolor=pink];
-    "Node1" [label="Nombre: Juan Perez\nId: 1\nimg_g: 1\nimg_p: 3"];
+    "Node1" [label="Nombre: Calificacion 1\nId: 1\nimg_g: 1\nimg_p: 3"];
     "Node1" -> "Node2";
     "Node2" [label="Nombre: Maria Garcia\nId: 2\nimg_g: 2\nimg_p: 2"];
     "Node2" -> "Node3";
