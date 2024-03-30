@@ -1,4 +1,5 @@
 program  Main 
+    use Logs
     implicit none
     integer :: choice
     call InitMenu
@@ -21,15 +22,6 @@ program  Main
             end select
         end do
     end subroutine InitMenu
-
-    subroutine Login()
-        print*, ' '
-        write(*, '(A, I0, A)', advance='no') 'User: '
-        !futuro read
-        write(*, '(A, I0, A)', advance='no') 'Password: '
-        !futuro read
-        print*, 'regresar al menu principal'
-    end subroutine Login
 
     subroutine ModAdmin()
         print*, ' '
