@@ -3,10 +3,10 @@ module Logs
     character(100) :: username, password
     character(100) :: Cuser = 'Admin'
     character(100) :: Cpass = 'Admin'
-    
+
 contains
 
-    subroutine Login
+    subroutine Login()
         logical :: loggedIn
 
         loggedIn = .false.
@@ -19,11 +19,11 @@ contains
             read *, password
 
             if (username == Cuser .and. password == Cpass) then
-                print *, "Welcom, ", username, "!"
+                print *, "Welcome, ", username, "!"
                 loggedIn = .true.
             else
                 print *, "Wrong password, try again"
             end if
         end do
-    end subroutine
+    end subroutine Login
 end module Logs

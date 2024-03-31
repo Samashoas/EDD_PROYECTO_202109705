@@ -2,9 +2,8 @@ program  Main
     use Logs
     implicit none
     integer :: choice
-    call InitMenu
     
-    contains
+contains
     subroutine InitMenu()
         print*, ''
         print*, '1. Login'
@@ -24,6 +23,7 @@ program  Main
     end subroutine InitMenu
 
     subroutine ModAdmin()
+        implicit none
         print*, ' '
         print*, '1. Cargar usuarios'
         print*, '2. Operaciones'
