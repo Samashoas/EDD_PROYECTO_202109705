@@ -1,7 +1,11 @@
 program  Main 
-    use Logs
+    use JCloader
     implicit none
     integer :: choice
+    character(100) :: username, password
+    character(100) :: Cuser = 'Admin'
+    character(100) :: Cpass = 'Admin'
+    call InitMenu()
     
 contains
     subroutine InitMenu()
@@ -18,12 +22,36 @@ contains
                 case(1)
                     call Login()
                     exit
+                case(2)
+                    exit
             end select
         end do
     end subroutine InitMenu
 
+    subroutine Login()
+
+        logical :: loggedIn
+
+        loggedIn = .false.
+
+        do while (.not. loggedIn)
+            write(*, '(A, I0, A)', advance='no') 'Enter User: '
+            read *, username
+
+            write(*, '(A, I0, A)', advance='no') 'Enter Password: '
+            read *, password
+
+            if (username == Cuser .and. password == Cpass) then
+                print *, "Welcome, ", username, "!"
+                loggedIn = .true.
+                call ModAdmin()
+            else
+                print *, "Wrong password, try again"
+            end if
+        end do
+    end subroutine Login
+
     subroutine ModAdmin()
-        implicit none
         print*, ' '
         print*, '1. Cargar usuarios'
         print*, '2. Operaciones'
@@ -37,7 +65,7 @@ contains
 
             select case(choice)
                 case(1)
-                    print*, 'Trabajando en la carga masiva'
+                    call LoadJsonC()
                 case(2)
                     print*, 'Trabajando en las operaciones'
                 case(3)

@@ -50,5 +50,12 @@ contains
                 print*, ' '
             end if
         end do
+
+        !Utilizar el menu de ModAdmin
+        print*, ' '
+        print*, '1. Cargar usuarios'
+        print*, '2. Operaciones'
+        print*, '3. Arbol de usuarios'
+        print*, '4. Logout'
     end subroutine
 end module JCloader
