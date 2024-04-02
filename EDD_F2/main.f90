@@ -1,5 +1,6 @@
 program  Main 
     use JCloader
+    use OPAD
     implicit none
     integer :: choice
     logical :: loggedIn
@@ -102,13 +103,14 @@ contains
 
             select case(choice)
                 case(1)
-                    print*, 'Trabajando en el registro'
+                    call registrar()
                 case(2)
                     print*, 'Trabajando en la modificacion'
                 case(3)
                     print*, 'Trabajando en la eliminacion'
                 case(4)
                     call ModAdmin
+                    loggedIn = .false.
                     exit
             end select
         end do
@@ -135,6 +137,7 @@ contains
                     print*, 'Trabajando en los reportes'
                 case(4)
                     call InitMenu()
+                    loggedIn = .false.
                     exit
             end select
         end do
