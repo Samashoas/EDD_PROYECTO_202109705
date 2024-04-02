@@ -2,10 +2,13 @@ program  Main
     use JCloader
     implicit none
     integer :: choice
-    character(100) :: username, password
+    logical :: loggedIn
+    character(100) :: username, pass
     character(100) :: Cuser = 'Admin'
     character(100) :: Cpass = 'Admin'
+    character(len=:), allocatable :: dpi, nombre, password
     call InitMenu()
+
     
 contains
     subroutine InitMenu()
@@ -29,9 +32,6 @@ contains
     end subroutine InitMenu
 
     subroutine Login()
-
-        logical :: loggedIn
-
         loggedIn = .false.
 
         do while (.not. loggedIn)
@@ -39,14 +39,21 @@ contains
             read *, username
 
             write(*, '(A, I0, A)', advance='no') 'Enter Password: '
-            read *, password
+            read *, pass
 
-            if (username == Cuser .and. password == Cpass) then
+            if (username == Cuser .and. pass == Cpass) then
                 print *, "Welcome, ", username, "!"
                 loggedIn = .true.
                 call ModAdmin()
             else
-                print *, "Wrong password, try again"
+                    if(username == trim(dpi) .and. pass == trim(password))then
+                        print *, "Welcome, Client ", trim(nombre)
+                        loggedIn = .true.
+                        exit
+                    end if
+                if(.not. loggedIn) then
+                    print*, "Wrong username or password, try again"
+                end if
             end if
         end do
     end subroutine Login
@@ -67,7 +74,7 @@ contains
                 case(1)
                     call LoadJsonC()
                 case(2)
-                    print*, 'Trabajando en las operaciones'
+                    call operacionesAD()
                 case(3)
                     print*, 'Trabajando en el arbol'
                 case(4)
