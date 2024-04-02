@@ -6,7 +6,7 @@ program  Main
     character(100) :: username, pass
     character(100) :: Cuser = 'Admin'
     character(100) :: Cpass = 'Admin'
-    character(len=:), allocatable :: dpi, nombre, password
+    integer :: i
     call InitMenu()
 
     
@@ -46,11 +46,14 @@ contains
                 loggedIn = .true.
                 call ModAdmin()
             else
-                    if(username == trim(dpi) .and. pass == trim(password))then
-                        print *, "Welcome, Client ", trim(nombre)
+                do i = 1,  size(clients)
+                    if(username == trim(clients(i)%dpi) .and. pass == trim(clients(i)%password))then
+                        print *, "Welcome, Client ", trim(clients(i)%nombre)
                         loggedIn = .true.
+                        call ModCliente()
                         exit
                     end if
+                end do
                 if(.not. loggedIn) then
                     print*, "Wrong username or password, try again"
                 end if
