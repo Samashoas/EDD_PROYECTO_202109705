@@ -8,7 +8,7 @@ program  Main
     character(100) :: Cuser = 'Admin'
     character(100) :: Cpass = 'Admin'
     integer :: i
-    call InitMenu()
+    call operacionesAD()
 
     
 contains
@@ -79,6 +79,7 @@ contains
                     call LoadJsonC()
                 case(2)
                     call operacionesAD()
+                    exit
                 case(3)
                     print*, 'Trabajando en el arbol'
                 case(4)
