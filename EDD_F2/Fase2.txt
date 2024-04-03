@@ -1,0 +1,42 @@
+Usuarios
+    *carga masiva
+    Arbol B
+    *Resgistrar
+    Modificar
+    Eliminar
+Albums
+    Carga masiva
+    Lista circular (Cualquier lista[Doblemente enlazada])
+Imagenes
+    Carga masiva
+    Arbol AVL
+    Resgistrar
+    Eliminar
+Capas
+    Carga masiva
+    Arbol ABB
+Generar imagenes
+    Ver imagenes
+    Recorrido
+        Preorder
+        Inorder
+        Postorder
+    Arbol de imagenes[amplitud]
+    por capa
+Estado de estructuras
+    Arbol de imagenes(AVL)
+    Arbol de capas(ABB)
+    Listado de Albums(LISTA)
+    Ver capa(MATRIZ)
+    Ver imagen y Arbol de capas(AVL y ABB)
+    Ver Usuarios(Arbol B)
+Reportes de usuarios
+    Top 5 imagenes con mas capas
+    Todas las capas que son hojas
+    Profundidad de Arbol de capas
+    Lstar capas(Preorder, inorder y postorder)
+Reportes Admin
+    Buscar Usuario
+    Listar usuarios(Recorrido por niveles)
+Documentacion
+    Manuales
