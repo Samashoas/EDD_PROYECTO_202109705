@@ -40,3 +40,8 @@ Reportes Admin
     Listar usuarios(Recorrido por niveles)
 Documentacion
     Manuales
+
+
+Anotaciones:
+
+Actualmente la interfaz está bugeada, no me quiere sacar del los modulos y se enccla en uno mismo

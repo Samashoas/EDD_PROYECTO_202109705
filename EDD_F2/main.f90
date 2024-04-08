@@ -8,7 +8,7 @@ program  Main
     character(100) :: Cuser = 'Admin'
     character(100) :: Cpass = 'Admin'
     integer :: i
-    call operacionesAD()
+    call InitMenu()
 
     
 contains
@@ -46,6 +46,7 @@ contains
                 print *, "Welcome, ", username, "!"
                 loggedIn = .true.
                 call ModAdmin()
+                exit
             else
                 do i = 1,  size(clients)
                     if(username == trim(clients(i)%dpi) .and. pass == trim(clients(i)%password))then
@@ -79,23 +80,24 @@ contains
                     call LoadJsonC()
                 case(2)
                     call operacionesAD()
-                    exit
                 case(3)
                     print*, 'Trabajando en el arbol'
                 case(4)
+                    loggedIn = .false.
                     call InitMenu()
-                    exit
+                    exit 
             end select
         end do
     end subroutine ModAdmin
 
     subroutine operacionesAD()
         print*, ' '
-        print*, 'Operaciones de clientes'
-        print*, '1. Registrar'
-        print*, '2. modificar'
-        print*, '3. eliminar'
-        print*, '4. Regresar'
+        print*, 'Operaciones de Administrador'
+        print*, '1. Clientes registrados'
+        print*, '2. Registrar'
+        print*, '3. modificar'
+        print*, '4. eliminar'
+        print*, '5. Regresar'
 
         do
             write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion: '
@@ -104,14 +106,14 @@ contains
 
             select case(choice)
                 case(1)
-                    call registrar()
+                    call print_clients()
                 case(2)
-                    print*, 'Trabajando en la modificacion'
+                    call registrar()
                 case(3)
-                    print*, 'Trabajando en la eliminacion'
+                    call modificar()
                 case(4)
-                    call ModAdmin
-                    loggedIn = .false.
+                    call eliminar()
+                case(5)
                     exit
             end select
         end do
@@ -131,7 +133,7 @@ contains
 
             select case(choice)
                 case(1)
-                    call Cargas4C
+                    call Cargas4C()
                 case(2)
                     print*, 'Trabajando en las imagenes'
                 case(3)
