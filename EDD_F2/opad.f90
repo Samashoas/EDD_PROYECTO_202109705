@@ -78,6 +78,13 @@ module OPAD
         print *, 'DPI: ', trim(clients(index)%dpi)
         print *, 'Nombre: ', trim(clients(index)%nombre)
         print *, 'Password: ', trim(clients(index)%password)
+
+        print*, ' '
+        print*, '1. Clientes registrados'
+        print*, '2. Registrar'
+        print*, '3. modificar'
+        print*, '4. eliminar'
+        print*, '5. Regresar'
     end subroutine modificar
 
     subroutine eliminar
@@ -118,6 +125,13 @@ module OPAD
         clients = temp_client
 
         print*, 'Cliente eliminado'
+
+        print*, ' '
+        print*, '1. Clientes registrados'
+        print*, '2. Registrar'
+        print*, '3. modificar'
+        print*, '4. eliminar'
+        print*, '5. Regresar'
     end subroutine eliminar
 
     subroutine print_clients
@@ -135,5 +149,12 @@ module OPAD
             print *, 'Password: ', trim(clients(i)%password)
             print *, ' '
         end do 
+
+        print*, ' '
+        print*, '1. Clientes registrados'
+        print*, '2. Registrar'
+        print*, '3. modificar'
+        print*, '4. eliminar'
+        print*, '5. Regresar'
     end subroutine print_clients
 end module OPAD

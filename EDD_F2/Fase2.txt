@@ -3,7 +3,7 @@ Usuarios
     Arbol B
     *Resgistrar
     *Modificar
-    Eliminar
+    *Eliminar
 Albums
     Carga masiva
     Lista circular (Cualquier lista[Doblemente enlazada])

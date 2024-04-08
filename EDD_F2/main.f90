@@ -18,7 +18,7 @@ contains
         print*, '2. Salir'
 
         do
-            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion: '
+            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion(INIT): '
             read*, choice
             print*, ' '
 
@@ -71,7 +71,7 @@ contains
         print*, '4. Logout'
 
         do
-            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion: '
+            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion(MODAD): '
             read*, choice
             print*, ' '
 
@@ -83,7 +83,6 @@ contains
                 case(3)
                     print*, 'Trabajando en el arbol'
                 case(4)
-                    loggedIn = .false.
                     call InitMenu()
                     exit 
             end select
@@ -100,7 +99,7 @@ contains
         print*, '5. Regresar'
 
         do
-            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion: '
+            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion (OPAD): '
             read*, choice
             print*, ' '
 
@@ -114,6 +113,11 @@ contains
                 case(4)
                     call eliminar()
                 case(5)
+                    print*, ' '
+                    print*, '1. Carga masiva'
+                    print*, '2. Imagenes'
+                    print*, '3. Reportes'
+                    print*, '4. Salir'
                     exit
             end select
         end do
@@ -127,7 +131,7 @@ contains
         print*, '4. Salir'
 
         do
-            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion: '
+            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion(MODC): '
             read*, choice
             print*, ''
 
@@ -140,7 +144,6 @@ contains
                     print*, 'Trabajando en los reportes'
                 case(4)
                     call InitMenu()
-                    loggedIn = .false.
                     exit
             end select
         end do

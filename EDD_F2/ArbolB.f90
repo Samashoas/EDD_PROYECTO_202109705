@@ -1,11 +1,7 @@
-! BTree Knuth Implementation
-! Luis Espino 2024
-
 program BTree
     implicit none
 
-      ! Order 4
-    integer, parameter :: MAXI = 3, MINI = 1 
+    integer, parameter :: MAXI = 4, MINI = 1 
 
     type nodeptr
         type (BTreeNode), pointer :: ptr => null()
