@@ -2,7 +2,7 @@ Usuarios
     *carga masiva
     Arbol B
     *Resgistrar
-    Modificar
+    *Modificar
     Eliminar
 Albums
     Carga masiva

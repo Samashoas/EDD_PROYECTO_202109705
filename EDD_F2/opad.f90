@@ -8,13 +8,13 @@ module OPAD
         type(client) :: new_client
         character(len=100) dpi, nombre, password
 
-        write(*, '(A)', advance='no') 'Enter DPI: '
+        write(*, '(A)', advance='no') 'Ingrese DPI: '
         read(*, '(A)') dpi
 
-        write(*, '(A)', advance='no') 'Enter name: '
+        write(*, '(A)', advance='no') 'Ingrese name: '
         read(*, '(A)') nombre
 
-        write(*, '(A)', advance='no') 'Enter password: '
+        write(*, '(A)', advance='no') 'Ingrese password: '
         read(*, '(A)') password
 
         new_client%dpi = dpi
@@ -73,6 +73,7 @@ module OPAD
         clients(index)%nombre = trim(nombre)
         clients(index)%password = trim(password)
 
+        print*, ' '
         print*, 'Client updated'
         print *, 'DPI: ', trim(clients(index)%dpi)
         print *, 'Nombre: ', trim(clients(index)%nombre)
@@ -80,6 +81,43 @@ module OPAD
     end subroutine modificar
 
     subroutine eliminar
+        character(len=100) :: dpi
+        integer :: i, index
+        logical :: found
+        type(client), dimension(:), allocatable :: temp_client
+
+        write(*, '(A)', advance='no') 'Enter Client DPI: '
+        read(*,'(A)') dpi
+
+        found = .false.
+        do i =i, size(clients)
+            if(trim(clients(i)%dpi) == trim(dpi))then
+                found = .true.
+                index = i
+                exit
+            end if
+        end do
+
+        if (.not. found)then
+            print *, 'Cliente no encontrado'
+            return
+        end if
+
+        allocate(temp_client(size(clients)-1))
+        if(index > 1)then
+            temp_client(1:index-1)=clients(1:index-1)
+        end if
+
+        if(index < size(clients))then
+            temp_client(index:size(temp_client)) = clients(index+1:size(clients))
+        end if
+
+        if(allocated(clients))then
+            deallocate(clients)
+        end if
+        clients = temp_client
+
+        print*, 'Cliente eliminado'
     end subroutine eliminar
 
     subroutine print_clients
