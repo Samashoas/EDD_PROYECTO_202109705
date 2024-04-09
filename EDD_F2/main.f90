@@ -68,7 +68,7 @@ contains
         print*, ' '
         print*, '1. Cargar usuarios'
         print*, '2. Operaciones'
-        print*, '3. Arbol de usuarios'
+        print*, '3. Reportes'
         print*, '4. Logout'
 
         do
@@ -82,13 +82,37 @@ contains
                 case(2)
                     call operacionesAD()
                 case(3)
-                    call Insert_Btree()
+                    call repoAD()
                 case(4)
                     call InitMenu()
                     exit 
             end select
         end do
     end subroutine ModAdmin
+
+    subroutine repoAD()
+        print*, ' '
+        print*, '1. Arbol B de usuarios'
+        print*, '2. Buscar usuarios'
+        print*, '3. Listar usuarios'
+        print*, '4. Regresar' 
+
+        do
+            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion(REPOAD): '
+            read*, choice
+            print*, ' '
+            select case(choice)
+                case(1)
+                    call Insert_Btree()
+                case(2)
+                    call buscar()
+                case(3)
+                    print*, 'Trabajando en ello'
+                case(4)
+                    exit
+            end select
+        end do
+    end subroutine repoAD
 
     subroutine operacionesAD()
         print*, ' '
@@ -115,10 +139,10 @@ contains
                     call eliminar()
                 case(5)
                     print*, ' '
-                    print*, '1. Carga masiva'
-                    print*, '2. Imagenes'
+                    print*, '1. Cargar usuarios'
+                    print*, '2. Operaciones'
                     print*, '3. Reportes'
-                    print*, '4. Salir'
+                    print*, '4. Logout'
                     exit
             end select
         end do

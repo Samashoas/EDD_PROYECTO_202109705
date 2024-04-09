@@ -159,7 +159,10 @@ contains
 
         if (associated(myNode)) then
             do i = 0, myNode%num
-                write(unit, '(A,I0,A,I0,A)') '', loc(myNode), ' ->', loc(myNode%link(i)%ptr), ';'
+                write(unit, '(A,I0,A,I0,A)') '', loc(myNode), '[label="', myNode%val(i+1), '"];'
+                if(associated(myNode%link(i)%ptr))then
+                    write(unit, '(A,I0,A,I0,A)') '', loc(myNode), ' ->', loc(myNode%link(i)%ptr), ';'
+                end if
                 call print_dot(myNode%link(i)%ptr, unit)
             end do
         end if

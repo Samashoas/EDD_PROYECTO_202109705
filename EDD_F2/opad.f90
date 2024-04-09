@@ -41,12 +41,12 @@ module OPAD
         print*, '5. Regresar'
     end subroutine registrar
 
-    subroutine modificar
+    subroutine modificar()
         character(len=100) :: dpi, nombre, password
         integer :: i, index
         logical :: found
 
-        write(*, '(A)', advance='no') 'Enter DPI: '
+        write(*, '(A)', advance='no') 'Ingrese DPI: '
         read(*,'(A)') dpi
 
         found = .false.
@@ -87,7 +87,7 @@ module OPAD
         print*, '5. Regresar'
     end subroutine modificar
 
-    subroutine eliminar
+    subroutine eliminar()
         character(len=100) :: dpi
         integer :: i, index
         logical :: found
@@ -133,6 +133,35 @@ module OPAD
         print*, '4. eliminar'
         print*, '5. Regresar'
     end subroutine eliminar
+
+    subroutine buscar()
+        character(len=100) :: dpi
+        integer :: i, index
+        logical :: found
+
+        write(*, '(A)', advance='no') 'Ingrese DPI: '
+        read(*,'(A)') dpi
+
+        found = .false.
+
+        do i=1, size(clients)
+            if(trim(clients(i)%dpi)==trim(dpi))then
+                found = .true.
+                index = i
+                exit
+            end if
+        end do
+
+        if(.not. found)then
+            print*, 'Cliente no encontrado'
+            return
+        end if
+
+        print*, ' '
+        print *, 'DPI: ', trim(clients(index)%dpi)
+        print *, 'Nombre: ', trim(clients(index)%nombre)
+        print *, 'Password: ', trim(clients(index)%password)
+    end subroutine buscar
 
     subroutine print_clients
         integer :: i

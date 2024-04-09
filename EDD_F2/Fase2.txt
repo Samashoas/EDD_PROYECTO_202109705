@@ -1,12 +1,12 @@
 Usuarios
     *carga masiva
-    Arbol B
+    *Arbol B - No se genera correctamente
     *Resgistrar
     *Modificar
     *Eliminar
 Albums
     Carga masiva
-    Lista circular (Cualquier lista[Doblemente enlazada])
+    Lista circular (Cualquier lista[Doblemente enlazada][Lista de Listas])
 Imagenes
     Carga masiva
     Arbol AVL
@@ -36,12 +36,10 @@ Reportes de usuarios
     Profundidad de Arbol de capas
     Lstar capas(Preorder, inorder y postorder)
 Reportes Admin
-    Buscar Usuario
+    Buscar Usuario - Solo busca la info incial del cliente, no sus imagenes, capas o Albums
     Listar usuarios(Recorrido por niveles)
 Documentacion
     Manuales
 
 
 Anotaciones:
-
-Actualmente la interfaz está bugeada, no me quiere sacar del los modulos y se enccla en uno mismo

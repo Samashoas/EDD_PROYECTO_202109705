@@ -69,7 +69,7 @@ contains
         print*, ' '
         print*, '1. Cargar usuarios'
         print*, '2. Operaciones'
-        print*, '3. Arbol de usuarios'
+        print*, '3. Reportes'
         print*, '4. Logout'
     end subroutine
 end module JCloader
