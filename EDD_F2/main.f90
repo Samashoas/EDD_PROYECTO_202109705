@@ -1,6 +1,7 @@
 program  Main 
     use JCloader
     use OPAD
+    use TInsert
     implicit none
     integer :: choice
     logical :: loggedIn
@@ -81,7 +82,7 @@ contains
                 case(2)
                     call operacionesAD()
                 case(3)
-                    print*, 'Trabajando en el arbol'
+                    call Insert_Btree()
                 case(4)
                     call InitMenu()
                     exit 
