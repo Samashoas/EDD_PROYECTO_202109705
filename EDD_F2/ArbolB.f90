@@ -14,6 +14,7 @@ module BTree
     end type BTreeNode
 
     type(BTreeNode), pointer :: root => null()
+    character(len=20) :: filename
     
 contains
 
@@ -150,5 +151,31 @@ contains
                 write (*, '(A)', advance='no') ' ] '
         end if
     end subroutine traversal
+
+    recursive subroutine print_dot(myNode, unit)
+        type(BTreeNode), pointer, intent(in) :: myNode
+        integer(8), intent(in) :: unit
+        integer(8) :: i
+
+        if (associated(myNode)) then
+            do i = 0, myNode%num
+                write(unit, '(A,I0,A,I0,A)') '', loc(myNode), ' ->', loc(myNode%link(i)%ptr), ';'
+                call print_dot(myNode%link(i)%ptr, unit)
+            end do
+        end if
+    end subroutine print_dot
+
+    subroutine generate_dot(root, filename)
+        type(BTreeNode), pointer, intent(in) :: root
+        character(len=*), intent(in) :: filename
+        integer(8) :: unit
+
+        open(newunit=unit, file=filename, status='replace')
+        write(unit, '(A)') 'digraph BTree {'
+        write(unit, '(A)')'     node [shape=record];'
+        call print_dot(root, unit)
+        write(unit, '(A)') '}'
+        close(unit)
+    end subroutine generate_dot
 
 end module BTree

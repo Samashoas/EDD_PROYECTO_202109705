@@ -6,6 +6,7 @@ contains
     subroutine Insert_Btree()
         integer(8) :: i, dpi_val, setValue_arg
         type(BTreeNode), pointer :: child
+        character(len=50) :: cmd
         allocate(child)
 
         do i = 1, size(clients)
@@ -22,5 +23,10 @@ contains
         call traversal(root)
         print*, ' '
         print*, ' '
+        call generate_dot(root, 'btree.dot')
+
+        cmd = 'dot -Tpng btree.dot -o btree.png'
+
+        call execute_command_line(cmd)
     end subroutine Insert_Btree
 end module TInsert
