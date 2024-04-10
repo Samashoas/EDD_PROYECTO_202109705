@@ -2,9 +2,11 @@ module TInsert
     use JCloader
     use JCAloader
     use JImgLoader
+    use AlbumLoader
     use BTree
     use abb_m
     use avldef
+    use linked_list_module
     implicit none
 
 contains
@@ -122,4 +124,29 @@ contains
         print*, '4. Imagen y capa'
         print*, '5. regresar'
     end subroutine InsertAVL
+
+    subroutine InsertCircularList()
+        Type(linked_list) :: list
+        integer :: i
+        character(len=:), allocatable :: nombre_album
+
+        if(.not. allocated(albums))then
+            print*, 'No hay albums'
+            return
+        end if
+
+        do i = 1, size(albums)
+            call list%append(i)
+        end do
+
+        print*, ' '
+
+        do i = 1, size(albums)
+            print*, 'ID: ', i, ' Nombre del album: ', trim(albums(i)%nombre_album)
+        end do
+
+        print*, ' '
+        print*, 'Datos de la lista'
+        call list%print()
+    end subroutine InsertCircularList
 end module TInsert

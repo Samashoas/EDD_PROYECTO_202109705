@@ -37,7 +37,7 @@ contains
         do i = 1, size
             call jsoncore%get_child(listPointer, i, albumPointer, found = found)
 
-            call jsoncore%get_child(albumPointer, 'nombre-album', attributePointer, found = found)
+            call jsoncore%get_child(albumPointer, 'nombre_album', attributePointer, found = found)
             if (found) then
                 call jsoncore%get(attributePointer, nombre_album)
                 albums(i)%nombre_album = nombre_album
@@ -50,7 +50,7 @@ contains
             end if
 
             if(found) then
-                print*, 'nombre-album: ', trim(albums(i)%nombre_album)
+                print*, 'nombre_album: ', trim(albums(i)%nombre_album)
                 print*, 'imgs: ', albums(i)%imgs
                 print*, ' '
             end if
