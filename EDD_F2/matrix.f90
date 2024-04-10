@@ -5,13 +5,13 @@ module matrix_m
     type :: node_val
         private
         logical :: exists = .false.
-        character :: value
+        character(len=100) :: value
     end type node_val
 
     type :: node
         private
         integer :: i, j
-        character :: value
+        character(len=100):: value
         type(node), pointer :: up => null()
         type(node), pointer :: down => null()
         type(node), pointer :: right => null()
@@ -35,6 +35,7 @@ module matrix_m
         procedure :: print
         procedure :: printColumnHeaders
         procedure :: getValue
+        procedure :: generate_dot
         ! procedure :: printRowHeaders
     end type
 
@@ -43,7 +44,7 @@ contains
         class(matrix), intent(inout) :: self  
         integer, intent(in) :: i
         integer, intent(in) :: j
-        character, intent(in) :: value
+        character(len=100), intent(in) :: value
 
         type(node), pointer :: new
         type(node), pointer :: row
@@ -260,4 +261,39 @@ contains
             rowHeader => rowHeader%down
         end do
     end function getValue
+
+    subroutine generate_dot(self, filename)
+        class(matrix), intent(in) :: self
+        character(len=*), intent(in) :: filename
+        integer :: i, j
+        type(node_val) :: val
+        character(len=7) :: color
+    
+        open(unit=10, file=filename, status='replace')
+    
+        write(10, '(A)') 'digraph G {'
+        write(10, '(A)') '    node [shape=none, margin=0];'
+    
+        write(10, '(A)') '    some_node [label=<'
+        write(10, '(A)') '        <table border="0" cellborder="1" cellspacing="0" cellpadding="4">'
+    
+        do i = 0, self%height
+            write(10, '(A)') '            <tr>'
+            do j = 0, self%width
+                val = self%getValue(i, j)
+                if (val%exists) then
+                    color = trim(val%value(1:7))  ! Use the first six characters of the value as color
+                    write(10, '(A,A,A)') '                <td bgcolor="' // color // '"> </td>'
+                else
+                    write(10, '(A)') '                <td></td>'
+                end if
+            end do
+            write(10, '(A)') '            </tr>'
+        end do
+    
+        write(10, '(A)') '        </table>'
+        write(10, '(A)') '    >];'
+        write(10, '(A)') '}'
+        close(10)
+    end subroutine generate_dot
 end module matrix_m

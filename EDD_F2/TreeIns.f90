@@ -7,6 +7,7 @@ module TInsert
     use abb_m
     use avldef
     use linked_list_module
+    use matrix_m
     implicit none
 
 contains

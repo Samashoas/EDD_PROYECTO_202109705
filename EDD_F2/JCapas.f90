@@ -24,6 +24,7 @@ module JCAloader
             type(json_core) :: jsoncore
             integer :: i, j, size, pixelSize 
             logical :: found
+            character(len=:), allocatable :: color
 
             write (*, '(A, I0, A)', advance='no') 'Ingrese la direccion del archivo JSON: '
             read(*, '(A)') filename
@@ -64,18 +65,22 @@ module JCAloader
                             end if
                             call jsoncore%get_child(attributePointer, 'color', colorPointer, found = found)
                             if(found)then
-                                call jsoncore%get(colorPointer, capas(i)%pixeles(j)%color)
+                                call jsoncore%get(colorPointer, color)
+                                capas(i)%pixeles(j)%color = trim(color)
                             end if
                         end if
                         print*, 'Fila: ', capas(i)%pixeles(j)%fila
                         print*, 'Columna: ', capas(i)%pixeles(j)%columna
-                        print*, 'Color: ', capas(i)%pixeles(j)%color
+                        print*, 'Color: ', trim(capas(i)%pixeles(j)%color)
 
-                        call m%insert(capas(i)%pixeles(j)%fila, capas(i)%pixeles(j)%columna, capas(i)%pixeles(j)%color)
+                        call m%insert(capas(i)%pixeles(j)%fila, capas(i)%pixeles(j)%columna, trim(capas(i)%pixeles(j)%color))
                     end do
                 end if
             end do
             call m%print()
+            call m%generate_dot('matriz.dot')
+            call execute_command_line('dot -Tpng matriz.dot -o matriz.png')
+            call execute_command_line('start "" "matriz.png"')
 
         print*, ' '
         print*, '1. Capas: '
