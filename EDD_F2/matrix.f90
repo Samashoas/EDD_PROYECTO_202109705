@@ -218,7 +218,7 @@ contains
             do j = 0, self%width
                 val = self%getValue(i,j)
                 if(.not. val%exists) then
-                    write(*, fmt='(I3)', advance='no') ' '
+                    write(*, fmt='(A)', advance='no') ' '
                 else
                     write(*, fmt='(A)', advance='no') val%value
                 end if

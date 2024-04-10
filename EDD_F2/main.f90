@@ -12,7 +12,7 @@ program  Main
     character(100) :: Cuser = 'Admin'
     character(100) :: Cpass = 'Admin'
     integer :: i
-    call ModCliente()
+    call InitMenu()
 
     
 contains
