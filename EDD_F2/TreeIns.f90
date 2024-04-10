@@ -128,7 +128,7 @@ contains
     subroutine InsertCircularList()
         Type(linked_list) :: list
         integer :: i
-        character(len=:), allocatable :: nombre_album
+        character(len=100) cmd, cmd2
 
         if(.not. allocated(albums))then
             print*, 'No hay albums'
@@ -148,5 +148,13 @@ contains
         print*, ' '
         print*, 'Datos de la lista'
         call list%print()
+        call list%generate_dot('cl.dot')
+
+        cmd = 'dot -Tpng cl.dot -o cl.png'
+        call execute_command_line(cmd)
+
+        cmd2 = 'start "" "cl.png"'
+        call execute_command_line(cmd2)
+
     end subroutine InsertCircularList
 end module TInsert

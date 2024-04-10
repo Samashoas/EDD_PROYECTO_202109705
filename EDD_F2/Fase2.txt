@@ -6,10 +6,10 @@
     *Eliminar
 Albums
     *Carga masiva
-    Lista circular (Cualquier lista[Doblemente enlazada][Lista de Listas])
+    *Lista circular (Cualquier lista[Doblemente enlazada][Lista de Listas])
 Imagenes
     *Carga masiva
-    Arbol AVL
+    *Arbol AVL
     Resgistrar
     Eliminar
 Capas
@@ -24,9 +24,9 @@ Generar imagenes
     Arbol de imagenes[amplitud]
     por capa
 Estado de estructuras
-    Arbol de imagenes(AVL)
+    *Arbol de imagenes(AVL)
     *Arbol de capas(ABB)
-    Listado de Albums(LISTA)
+    *Listado de Albums(LISTA)
     Ver capa(MATRIZ)
     Ver imagen y Arbol de capas(AVL y ABB)
     *Ver Usuarios(Arbol B)

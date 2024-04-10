@@ -17,6 +17,7 @@ module linked_list_module
         procedure :: append
         procedure :: print
         procedure :: delete
+        procedure :: generate_dot
     end type linked_list
 
 contains
@@ -102,4 +103,33 @@ contains
             print *, "No se ha encontrado el valor: ", value
         end if
     end subroutine delete
+
+    subroutine generate_dot(self, filename)
+        class(linked_list), intent(inout) :: self
+        character(len=*), intent(in) :: filename
+        type(node), pointer :: current
+        integer :: iounit
+    
+        if (.not. associated(self%head)) then
+            print *, "La lista está vacía."
+            return
+        end if
+    
+        open(newunit=iounit, file=filename, status='replace')
+    
+        write(iounit, '(A)') 'digraph G {'
+        write(iounit, '(A)') '    rankdir=LR;'
+    
+        current => self%head
+        do
+            write(iounit, '(A, I0, A, I0, A)') '    ', current%value, ' -> ', current%next%value, ';'
+            if (associated(current%next, self%head)) exit  ! Salir al completar un ciclo (lista circular)
+            current => current%next
+        end do
+    
+        write(iounit, '(A)') '}'
+        close(iounit)
+    
+        print *, "Archivo DOT generado: ", trim(filename)
+    end subroutine generate_dot
 end module linked_list_module
