@@ -1,8 +1,10 @@
 module TInsert
     use JCloader
     use JCAloader
+    use JImgLoader
     use BTree
     use abb_m
+    use avldef
     implicit none
 
 contains
@@ -82,4 +84,42 @@ contains
         print*, '4. Imagen y capa'
         print*, '5. regresar'
     end subroutine InsertABB
+
+    subroutine InsertAVL()
+        type(avl) :: t	
+        integer :: unit, i
+        character(len=100) :: filename, cmd
+        filename = 'avl.dot'
+        open(unit, file=filename, status='replace')	
+
+        do i = 1, size(capasi)
+            call t%add(capasi(i)%id)
+        end do
+        
+        print *, 'Preorder:'
+        call t%preorder(t%root)
+        print *, ''
+        print *, 'Inorder:'
+        call t%inorder(t%root)
+        print *, ''
+        print *, 'Postorder:'
+        call t%postorder(t%root)
+        print *, ''
+        
+        print *, 'Generating Dot file...'
+        call t%dotgen(t%root, unit)
+        close(unit)
+        print *, 'Dot file generated:', trim(filename)
+        call execute_command_line('dot -Tpng avl.dot > avl.png')
+
+        cmd = 'start "" "avl.png"'
+        call execute_command_line(cmd)
+
+        print*, ' '
+        print*, '1. Arbol de imagenes'
+        print*, '2. Arbol de capas'
+        print*, '3. Listado de albums'
+        print*, '4. Imagen y capa'
+        print*, '5. regresar'
+    end subroutine InsertAVL
 end module TInsert

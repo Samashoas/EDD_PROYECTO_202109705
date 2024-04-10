@@ -2,6 +2,7 @@ program  Main
     use JCloader
     use JCAloader
     use JImgLoader
+    use AlbumLoader
     use OPAD
     use TInsert
     implicit none
@@ -11,7 +12,7 @@ program  Main
     character(100) :: Cuser = 'Admin'
     character(100) :: Cpass = 'Admin'
     integer :: i
-    call Cargas4C()
+    call InitMenu()
 
     
 contains
@@ -199,7 +200,7 @@ contains
                 case(2)
                     call LoadJsonImg()
                 case(3)
-                    print*, 'Trabajando en la carga de Albumes'
+                    call LoadJsonA()
                 case(4)
                     print*, ' '
                     print*, '1. Carga masiva'
@@ -226,7 +227,7 @@ contains
 
             select case(choice)
                 case(1)
-                    print*, 'trabajando en el arbol de imagenes'
+                    call InsertAVL()
                 case(2)
                     call InsertABB()
                 case(3)

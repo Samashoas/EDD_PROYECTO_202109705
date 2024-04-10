@@ -5,10 +5,10 @@
     *Modificar
     *Eliminar
 Albums
-    Carga masiva
+    *Carga masiva
     Lista circular (Cualquier lista[Doblemente enlazada][Lista de Listas])
 Imagenes
-    Carga masiva
+    *Carga masiva
     Arbol AVL
     Resgistrar
     Eliminar
@@ -43,5 +43,7 @@ Documentacion
 
 !C:\Users\jpsam\OneDrive\Escritorio\Clientes1.json
 !C:\Users\jpsam\OneDrive\Escritorio\1_luffy.json
+!C:\Users\jpsam\OneDrive\Escritorio\imagenes.json
+!C:\Users\jpsam\OneDrive\Escritorio\albums.json
 
 Anotaciones:

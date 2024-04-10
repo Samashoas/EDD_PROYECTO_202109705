@@ -4,10 +4,11 @@ module JImgLoader
 
     type capa
         integer :: id
-        integer, dimension(:), allocatable :: capas
+        integer, dimension(:), allocatable :: capasi
     end type capa
 
-    type(capa), dimension(:), allocatable :: capas
+    type(capa), dimension(:), allocatable :: capasi
+
 contains
     subroutine LoadJsonImg()
         character(len=100) :: filename
@@ -28,32 +29,33 @@ contains
         call json%get_core(jsoncore)
         call json%get('', listPointer, found)
 
-        allocate(capas(size))
+        allocate(capasi(size))
 
         do i = 1, size
             call jsoncore%get_child(listPointer, i, capaPointer, found = found)
 
             call jsoncore%get_child(capaPointer, 'id', attributePointer, found = found)
             if (found) then
-                call jsoncore%get(attributePointer, capas(i)%id)
+                call jsoncore%get(attributePointer, capasi(i)%id)
             end if
 
             call jsoncore%get_child(capaPointer, 'capas', capasPointer, found = found)
             if (found) then
                 call jsoncore%info(capasPointer, n_children=capasSize)
-                allocate(capas(i)%capas(capasSize))
+                allocate(capasi(i)%capasi(capasSize))
                 do j = 1, capasSize
                     call jsoncore%get_child(capasPointer, j, attributePointer, found = found)
                     if (found) then
-                        call jsoncore%get(attributePointer, capas(i)%capas(j))
+                        call jsoncore%get(attributePointer, capasi(i)%capasi(j))
                     end if
                 end do
             end if
 
             ! Imprimir los datos de la capa
-            print*, 'id ', capas(i)%id
-            print*, 'capas ', capas(i)%capas
+            print*, 'id ', capasi(i)%id
+            print*, 'capas ', capasi(i)%capasi
         end do
+
 
         !Utilizar el menu de ModAdmin
         print*, ' '
@@ -62,4 +64,5 @@ contains
         print*, '3. Albumes: '
         print*, '4. Regresar'
     end subroutine 
+
 end module JImgLoader
