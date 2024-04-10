@@ -172,7 +172,7 @@ contains
                 case(2)
                     print*, 'Trabajando en las imagenes'
                 case(3)
-                    print*, 'Trabajando en los reportes'
+                    call RepoC()
                 case(4)
                     call InitMenu()
                     exit
@@ -200,8 +200,46 @@ contains
                 case(3)
                     print*, 'Trabajando en la carga de Albumes'
                 case(4)
-                    call ModCliente
+                    print*, ' '
+                    print*, '1. Carga masiva'
+                    print*, '2. Imagenes'
+                    print*, '3. Reportes'
+                    print*, '4. Salir'
+                    exit
             end select
         end do
     end subroutine Cargas4C
+
+    subroutine RepoC()
+        print*, ' '
+        print*, '1. Arbol de imagenes'
+        print*, '2. Arbol de capas'
+        print*, '3. Listado de albums'
+        print*, '4. Imagen y capa'
+        print*, '5. regresar'
+
+        do
+            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion(REPOC): '
+            read*, choice
+            print*, ''
+
+            select case(choice)
+                case(1)
+                    print*, 'trabajando en el arbol de imagenes'
+                case(2)
+                    call InsertABB()
+                case(3)
+                    print*, 'Trabajando en el listado de albums'
+                case(4)
+                    print*, 'Trabajando en la imagen y la capa'
+                case(5)
+                    print*, ' '
+                    print*, '1. Carga masiva'
+                    print*, '2. Imagenes'
+                    print*, '3. Reportes'
+                    print*, '4. Salir'
+                    exit
+            end select
+        end do
+    end subroutine RepoC
 end program  Main 

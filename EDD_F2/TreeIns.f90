@@ -1,6 +1,9 @@
 module TInsert
     use JCloader
+    use JCAloader
     use BTree
+    use abb_m
+    implicit none
 
 contains
     subroutine Insert_Btree()
@@ -48,4 +51,35 @@ contains
         print*, '3. Listar usuarios'
         print*, '4. Regresar'
     end subroutine printBtree
+
+    subroutine InsertABB()
+        type(abb) :: tree
+        integer :: i
+        character(len=100) :: cmd
+
+        do i = 1, size(capas)
+            call tree%insert(capas(i)%id_capa)
+        end do
+
+        call tree%graph("inserted")
+
+        print*, "Preorden"
+        call tree%preorder()
+        print*, ' '
+        print*, "Inorden"
+        call tree%inorder()
+        print*, ''
+        print*, "Posorden"
+        call tree%posorder()
+
+        cmd = 'start "" "inserted.png"'
+        call execute_command_line(cmd)
+
+        print*, ' '
+        print*, '1. Arbol de imagenes'
+        print*, '2. Arbol de capas'
+        print*, '3. Listado de albums'
+        print*, '4. Imagen y capa'
+        print*, '5. regresar'
+    end subroutine InsertABB
 end module TInsert
