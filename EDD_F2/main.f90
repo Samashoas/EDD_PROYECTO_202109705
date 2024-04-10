@@ -1,6 +1,7 @@
 program  Main 
     use JCloader
     use JCAloader
+    use JImgLoader
     use OPAD
     use TInsert
     implicit none
@@ -10,7 +11,7 @@ program  Main
     character(100) :: Cuser = 'Admin'
     character(100) :: Cpass = 'Admin'
     integer :: i
-    call InitMenu()
+    call Cargas4C()
 
     
 contains
@@ -196,7 +197,7 @@ contains
                 case(1)
                     call LoadJsonCAP()
                 case(2)
-                    print*, 'Trabajando en la carga de imagenes'
+                    call LoadJsonImg()
                 case(3)
                     print*, 'Trabajando en la carga de Albumes'
                 case(4)

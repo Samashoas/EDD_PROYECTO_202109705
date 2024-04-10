@@ -14,7 +14,7 @@ Imagenes
     Eliminar
 Capas
     *Carga masiva
-    Arbol ABB
+    *Arbol ABB
 Generar imagenes
     Ver imagenes
     Recorrido
@@ -25,16 +25,16 @@ Generar imagenes
     por capa
 Estado de estructuras
     Arbol de imagenes(AVL)
-    Arbol de capas(ABB)
+    *Arbol de capas(ABB)
     Listado de Albums(LISTA)
     Ver capa(MATRIZ)
     Ver imagen y Arbol de capas(AVL y ABB)
-    Ver Usuarios(Arbol B)
+    *Ver Usuarios(Arbol B)
 Reportes de usuarios
     Top 5 imagenes con mas capas
     Todas las capas que son hojas
     Profundidad de Arbol de capas
-    Lstar capas(Preorder, inorder y postorder)
+    *Lstar capas(Preorder, inorder y postorder)
 Reportes Admin
     *Buscar Usuario - Solo busca la info incial del cliente, no sus imagenes, capas o Albums
     *Listar usuarios(Recorrido por niveles)
