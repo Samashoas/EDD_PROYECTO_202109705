@@ -161,6 +161,12 @@ module OPAD
         print *, 'DPI: ', trim(clients(index)%dpi)
         print *, 'Nombre: ', trim(clients(index)%nombre)
         print *, 'Password: ', trim(clients(index)%password)
+
+        print*, ' '
+        print*, '1. Arbol B de usuarios'
+        print*, '2. Buscar usuarios'
+        print*, '3. Listar usuarios'
+        print*, '4. Regresar'
     end subroutine buscar
 
     subroutine print_clients

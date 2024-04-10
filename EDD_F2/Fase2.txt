@@ -1,4 +1,4 @@
-Usuarios
+*Usuarios
     *carga masiva
     *Arbol B - No se genera correctamente
     *Resgistrar
@@ -36,10 +36,11 @@ Reportes de usuarios
     Profundidad de Arbol de capas
     Lstar capas(Preorder, inorder y postorder)
 Reportes Admin
-    Buscar Usuario - Solo busca la info incial del cliente, no sus imagenes, capas o Albums
-    Listar usuarios(Recorrido por niveles)
+    *Buscar Usuario - Solo busca la info incial del cliente, no sus imagenes, capas o Albums
+    *Listar usuarios(Recorrido por niveles)
 Documentacion
     Manuales
 
-
+!C:\Users\jpsam\OneDrive\Escritorio\Clientes.json
+!C:\Users\jpsam\OneDrive\Escritorio\Clientes1.json
 Anotaciones:

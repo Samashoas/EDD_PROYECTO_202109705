@@ -107,8 +107,13 @@ contains
                 case(2)
                     call buscar()
                 case(3)
-                    print*, 'Trabajando en ello'
+                    call printBtree()
                 case(4)
+                    print*, ' '
+                    print*, '1. Cargar usuarios'
+                    print*, '2. Operaciones'
+                    print*, '3. Reportes'
+                    print*, '4. Logout'
                     exit
             end select
         end do

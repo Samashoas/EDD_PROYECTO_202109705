@@ -1,7 +1,7 @@
 module BTree
     implicit none
 
-    integer(8), parameter :: MAXI = 4, MINI = 1 
+    integer(8), parameter :: MAXI = 5, MINI = 1
 
     type nodeptr
         type (BTreeNode), pointer :: ptr => null()
@@ -152,33 +152,42 @@ contains
         end if
     end subroutine traversal
 
-    recursive subroutine print_dot(myNode, unit)
+    recursive subroutine graphvizTraversal(myNode, unit)
         type(BTreeNode), pointer, intent(in) :: myNode
-        integer(8), intent(in) :: unit
+        integer, intent(in) :: unit
         integer(8) :: i
-
+        character(len=32) :: str
         if (associated(myNode)) then
-            do i = 0, myNode%num
-                write(unit, '(A,I0,A,I0,A)') '', loc(myNode), '[label="', myNode%val(i+1), '"];'
-                if(associated(myNode%link(i)%ptr))then
-                    write(unit, '(A,I0,A,I0,A)') '', loc(myNode), ' ->', loc(myNode%link(i)%ptr), ';'
+            write (str, '(I0)') loc(myNode)
+            write (unit, '(A)', advance='no') 'node' // trim(adjustl(str)) // ' [label="'
+            i = 0
+            do while (i < myNode%num)
+                if (i > 0) then
+                    write (unit, '(A)', advance='no') ', '
                 end if
-                call print_dot(myNode%link(i)%ptr, unit)
+                write (unit, '(I15)', advance='no') myNode%val(i+1)
+                i = i + 1
+            end do
+            write (unit, '(A)', advance='no') '"];'
+            do i = 0, myNode%num
+                if (associated(myNode%link(i)%ptr)) then
+                    write (str, '(I0)') loc(myNode%link(i)%ptr)
+                    write (unit, '(A)') 'node' // trim(adjustl(str)) // ' -- node' // trim(adjustl(str)) // ';'
+                    call graphvizTraversal(myNode%link(i)%ptr, unit)
+                end if
             end do
         end if
-    end subroutine print_dot
-
-    subroutine generate_dot(root, filename)
-        type(BTreeNode), pointer, intent(in) :: root
+    end subroutine graphvizTraversal
+    
+    subroutine generateGraphviz(myNode, filename)
+        type(BTreeNode), pointer, intent(in) :: myNode
         character(len=*), intent(in) :: filename
-        integer(8) :: unit
-
+        integer :: unit
         open(newunit=unit, file=filename, status='replace')
-        write(unit, '(A)') 'digraph BTree {'
-        write(unit, '(A)')'     node [shape=record];'
-        call print_dot(root, unit)
-        write(unit, '(A)') '}'
+        write (unit, '(A)') 'graph BTree {'
+        write (unit, '(A)') 'rankdir=TB;'
+        call graphvizTraversal(myNode, unit)
+        write (unit, '(A)') '}'
         close(unit)
-    end subroutine generate_dot
-
+    end subroutine generateGraphviz  
 end module BTree
