@@ -1,5 +1,6 @@
 program  Main 
     use JCloader
+    use JCAloader
     use OPAD
     use TInsert
     implicit none
@@ -187,13 +188,13 @@ contains
         print*, '4. Regresar'
 
         do
-            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion: '
+            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion(C4C): '
             read*, choice
             print*, ' '
 
             select case(choice) 
                 case(1)
-                    print*, 'Trabajando en la carga de capas'
+                    call LoadJsonCAP()
                 case(2)
                     print*, 'Trabajando en la carga de imagenes'
                 case(3)

@@ -13,7 +13,7 @@ Imagenes
     Resgistrar
     Eliminar
 Capas
-    Carga masiva
+    *Carga masiva
     Arbol ABB
 Generar imagenes
     Ver imagenes
@@ -41,6 +41,8 @@ Reportes Admin
 Documentacion
     Manuales
 
-!C:\Users\jpsam\OneDrive\Escritorio\Clientes.json
 !C:\Users\jpsam\OneDrive\Escritorio\Clientes1.json
+!C:\Users\jpsam\OneDrive\Escritorio\1_luffy.json
+
+
 Anotaciones:
