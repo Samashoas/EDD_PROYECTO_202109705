@@ -1,5 +1,6 @@
 module JCAloader
     use json_module
+    use matrix_m
     implicit none
 
     type pixel
@@ -13,12 +14,13 @@ module JCAloader
     end type capa
 
     type(capa), dimension(:), allocatable :: capas
-
+    type(matrix) :: m
     contains
         subroutine LoadJsonCAP()
             character(len=100) :: filename
             type(json_file) :: json
             type(json_value), pointer :: listPointer, capaPointer, pixelPointer, attributePointer
+            type(json_value), pointer :: filaPointer, columnaPointer, colorPointer
             type(json_core) :: jsoncore
             integer :: i, j, size, pixelSize 
             logical :: found
@@ -52,22 +54,28 @@ module JCAloader
                     do j = 1, pixelSize
                         call jsoncore%get_child(pixelPointer, j, attributePointer, found = found)
                         if(found)then
-                            call jsoncore%get_child(attributePointer, 'fila', attributePointer, found = found)
+                            call jsoncore%get_child(attributePointer, 'fila', filaPointer, found = found)
                             if(found) then
-                                call jsoncore%get(attributePointer, capas(i)%pixeles(j)%fila)
+                                call jsoncore%get(filaPointer, capas(i)%pixeles(j)%fila)
                             end if
-                            call jsoncore%get_child(attributePointer, 'columna', attributePointer, found = found)
+                            call jsoncore%get_child(attributePointer, 'columna', columnaPointer, found = found)
                             if(found)then
-                                call jsoncore%get(attributePointer, capas(i)%pixeles(j)%columna)
+                                call jsoncore%get(columnaPointer, capas(i)%pixeles(j)%columna)
                             end if
-                            call jsoncore%get_child(attributePointer, 'color', attributePointer, found = found)
+                            call jsoncore%get_child(attributePointer, 'color', colorPointer, found = found)
                             if(found)then
-                                call jsoncore%get(attributePointer, capas(i)%pixeles(j)%color)
+                                call jsoncore%get(colorPointer, capas(i)%pixeles(j)%color)
                             end if
                         end if
+                        print*, 'Fila: ', capas(i)%pixeles(j)%fila
+                        print*, 'Columna: ', capas(i)%pixeles(j)%columna
+                        print*, 'Color: ', capas(i)%pixeles(j)%color
+
+                        call m%insert(capas(i)%pixeles(j)%fila, capas(i)%pixeles(j)%columna, capas(i)%pixeles(j)%color)
                     end do
                 end if
             end do
+            call m%print()
 
         print*, ' '
         print*, '1. Capas: '

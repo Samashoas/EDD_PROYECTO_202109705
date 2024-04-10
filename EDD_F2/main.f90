@@ -12,7 +12,7 @@ program  Main
     character(100) :: Cuser = 'Admin'
     character(100) :: Cpass = 'Admin'
     integer :: i
-    call InitMenu()
+    call ModCliente()
 
     
 contains
@@ -172,7 +172,7 @@ contains
                 case(1)
                     call Cargas4C()
                 case(2)
-                    print*, 'Trabajando en las imagenes'
+                    print*, ''
                 case(3)
                     call RepoC()
                 case(4)
