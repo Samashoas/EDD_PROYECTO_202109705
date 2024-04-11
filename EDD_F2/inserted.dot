@@ -1,21 +1,39 @@
  digraph G {
- "Nodo75879d1a-b043-445a-794a-ea77fd7fa3f0"[label = "           2 "]
- "Nodo75879d1a-b043-445a-794a-ea77fd7fa3f0"->"Nodof9b23002-6baa-480e-5232-eb09f24f9850"
- "Nodof9b23002-6baa-480e-5232-eb09f24f9850"[label = "           3 "]
- "Nodof9b23002-6baa-480e-5232-eb09f24f9850"->"Nodo61ea8c13-3758-4ec3-5073-6128fef7d043"
- "Nodo61ea8c13-3758-4ec3-5073-6128fef7d043"[label = "           4 "]
- "Nodo61ea8c13-3758-4ec3-5073-6128fef7d043"->"Nodoea06a1fd-54dc-4713-7f6b-c87cbde9c98c"
- "Nodoea06a1fd-54dc-4713-7f6b-c87cbde9c98c"[label = "           5 "]
- "Nodoea06a1fd-54dc-4713-7f6b-c87cbde9c98c"->"Nodoea48924a-d240-4a20-476b-a651cded9515"
- "Nodoea48924a-d240-4a20-476b-a651cded9515"[label = "           6 "]
- "Nodoea48924a-d240-4a20-476b-a651cded9515"->"Nodo17a68819-e10b-41a4-65b6-f2e5e6ff073c"
- "Nodo17a68819-e10b-41a4-65b6-f2e5e6ff073c"[label = "           7 "]
- "Nodo17a68819-e10b-41a4-65b6-f2e5e6ff073c"->"Nododa8b9ce6-b6b0-4d77-6945-e621bcdf8bec"
- "Nododa8b9ce6-b6b0-4d77-6945-e621bcdf8bec"[label = "           8 "]
- "Nododa8b9ce6-b6b0-4d77-6945-e621bcdf8bec"->"Nodo798f8924-4980-4adc-6d2d-6ed9e9ffda5e"
- "Nodo798f8924-4980-4adc-6d2d-6ed9e9ffda5e"[label = "           9 "]
- "Nodo798f8924-4980-4adc-6d2d-6ed9e9ffda5e"->"Nodofb6ba906-e282-4d89-681f-f428fdf9be3b"
- "Nodofb6ba906-e282-4d89-681f-f428fdf9be3b"[label = "          10 "]
- "Nodofb6ba906-e282-4d89-681f-f428fdf9be3b"->"Nodofaff6601-8427-4670-659c-e4927f3f0c1c"
- "Nodofaff6601-8427-4670-659c-e4927f3f0c1c"[label = "          11 "]
+ "Nodo7740e66e-ead9-4376-6723-fd607ff3abff"[label = "           9 "]
+ "Nodo7740e66e-ead9-4376-6723-fd607ff3abff"->"Nodofd0c4789-3f22-4e57-5306-2fd9f6cb723e"
+ "Nodo7740e66e-ead9-4376-6723-fd607ff3abff"->"Nodoe58ea009-3a1d-4f9f-7a1c-8eb2ff778625"
+ "Nodofd0c4789-3f22-4e57-5306-2fd9f6cb723e"[label = "           3 "]
+ "Nodofd0c4789-3f22-4e57-5306-2fd9f6cb723e"->"Nodof91fd289-3db0-437c-5dd5-a0d55ff76025"
+ "Nodofd0c4789-3f22-4e57-5306-2fd9f6cb723e"->"Nododb103fd2-baf0-4cd9-4953-a7067df78973"
+ "Nodof91fd289-3db0-437c-5dd5-a0d55ff76025"[label = "           1 "]
+ "Nodof91fd289-3db0-437c-5dd5-a0d55ff76025"->"Nodo357b7e37-af2c-491e-6a98-4938fedf7041"
+ "Nodof91fd289-3db0-437c-5dd5-a0d55ff76025"->"Nodod5e8a13b-b107-4a06-4721-6c623e7dcc5d"
+ "Nodo357b7e37-af2c-491e-6a98-4938fedf7041"[label = "           0 "]
+ "Nodod5e8a13b-b107-4a06-4721-6c623e7dcc5d"[label = "           2 "]
+ "Nododb103fd2-baf0-4cd9-4953-a7067df78973"[label = "           6 "]
+ "Nododb103fd2-baf0-4cd9-4953-a7067df78973"->"Nodoff034ff6-5ed6-4b6a-58c1-1c86d7fa428d"
+ "Nododb103fd2-baf0-4cd9-4953-a7067df78973"->"Nodo5f7d713d-17a4-4b5d-5370-20b7f7fe9197"
+ "Nodoff034ff6-5ed6-4b6a-58c1-1c86d7fa428d"[label = "           4 "]
+ "Nodoff034ff6-5ed6-4b6a-58c1-1c86d7fa428d"->"Nododb0666f2-318d-4800-66d0-79cdffce2c30"
+ "Nododb0666f2-318d-4800-66d0-79cdffce2c30"[label = "           5 "]
+ "Nodo5f7d713d-17a4-4b5d-5370-20b7f7fe9197"[label = "           8 "]
+ "Nodo5f7d713d-17a4-4b5d-5370-20b7f7fe9197"->"Nodoffb37091-c9ee-4380-7d7e-ec1e3bf3712e"
+ "Nodoffb37091-c9ee-4380-7d7e-ec1e3bf3712e"[label = "           7 "]
+ "Nodoe58ea009-3a1d-4f9f-7a1c-8eb2ff778625"[label = "          15 "]
+ "Nodoe58ea009-3a1d-4f9f-7a1c-8eb2ff778625"->"Nodo7454c462-2206-42c8-7471-97dcd3fdd6e6"
+ "Nodoe58ea009-3a1d-4f9f-7a1c-8eb2ff778625"->"Nodoc2093ba1-446c-4e24-4101-a58cfeb7f45a"
+ "Nodo7454c462-2206-42c8-7471-97dcd3fdd6e6"[label = "          10 "]
+ "Nodo7454c462-2206-42c8-7471-97dcd3fdd6e6"->"Nodoea392c13-0a7b-4c8e-42ba-d4c2ffffa431"
+ "Nodoea392c13-0a7b-4c8e-42ba-d4c2ffffa431"[label = "          14 "]
+ "Nodoea392c13-0a7b-4c8e-42ba-d4c2ffffa431"->"Nodofc829224-d392-4161-758c-1a84ef37461c"
+ "Nodofc829224-d392-4161-758c-1a84ef37461c"[label = "          12 "]
+ "Nodofc829224-d392-4161-758c-1a84ef37461c"->"Nodo7c5b73a4-cd24-4987-67a2-30a4ddf89b59"
+ "Nodofc829224-d392-4161-758c-1a84ef37461c"->"Nodof42e5a11-7a75-401f-4d1d-f7855f9cffd4"
+ "Nodo7c5b73a4-cd24-4987-67a2-30a4ddf89b59"[label = "          11 "]
+ "Nodof42e5a11-7a75-401f-4d1d-f7855f9cffd4"[label = "          13 "]
+ "Nodoc2093ba1-446c-4e24-4101-a58cfeb7f45a"[label = "          18 "]
+ "Nodoc2093ba1-446c-4e24-4101-a58cfeb7f45a"->"Nodoe18b9dd2-0a52-44d1-7c4a-6c5fedfa16a9"
+ "Nodoe18b9dd2-0a52-44d1-7c4a-6c5fedfa16a9"[label = "          16 "]
+ "Nodoe18b9dd2-0a52-44d1-7c4a-6c5fedfa16a9"->"Nodod9f37607-f88b-475c-6264-6498ddfded1b"
+ "Nodod9f37607-f88b-475c-6264-6498ddfded1b"[label = "          17 "]
  }
