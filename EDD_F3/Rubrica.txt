@@ -1,0 +1,30 @@
+Tecnicos
+    carga masiva
+    tabla hash
+    tecnico especifico
+    Listar Tecnicos
+Sucursales
+    carga masiva
+    Implementacion de arbol(ABB, AVL, B)
+    Ruta minima distancia
+    Ruta maxima de impresoras
+    Ruta recomendada
+    Ganancias y costos
+    Encriptar password
+Blockchain
+    Implementacion de blockchain
+    Arbol Merkle
+    Almacenamiento bloques Json
+    Almacenamiento ruta optima en bloque
+    Persistencia de datos
+Rutas
+    Carga masiva
+Reportes
+    Grafo Sucursales y rutas
+    Top 5 tecnicos con mas trabajo
+    Top suscursales mas solicitadas
+    visualizar arbol Merkle
+    visualizar blockchain
+    ver ganacias totales
+Documentacion
+    Manual tecnico y usuario
