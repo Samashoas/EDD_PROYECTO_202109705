@@ -4,7 +4,7 @@ Tecnicos
     tecnico especifico
     Listar Tecnicos
 Sucursales
-    carga masiva
+    *carga masiva
     Implementacion de arbol(ABB, AVL, B)
     Ruta minima distancia
     Ruta maxima de impresoras
@@ -28,3 +28,6 @@ Reportes
     ver ganacias totales
 Documentacion
     Manual tecnico y usuario
+
+
+C:\Users\jpsam\OneDrive\Escritorio\SucursalesP.json
