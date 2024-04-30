@@ -1,5 +1,5 @@
 Tecnicos
-    *carga masiva (funciona con dpi como character)
+    *carga masiva 
     tabla hash (agregada)
     tecnico especifico
     Listar Tecnicos

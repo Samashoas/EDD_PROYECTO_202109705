@@ -1,7 +1,8 @@
 module JTLoader
     use json_module
+    use iso_fortran_env, only:int64
     implicit none
-    
+     
     type Tecnico
         character(len=:), allocatable :: dpi, nombre, apellido, genero, direccion
         integer :: telefono
@@ -20,6 +21,7 @@ module JTLoader
             logical :: found
 
             character(len=:), allocatable :: dpi, nombre, apellido, genero, direccion
+            integer(kind=int64) :: dpi_int
 
             write (*, '(A, I0, A)', advance='no') 'Ingrese la direccion del archivo JSON: '
             read(*, '(A)') filename
@@ -41,7 +43,7 @@ module JTLoader
 
             allocate(tecnicos(size))
 
-            !print*, 'Tecnicos'
+            print*, 'Tecnicos'
             do i = 1, size
                 call jsoncore%get_child(listPointer, i, PersonPointer, found=found)
                 
@@ -50,6 +52,8 @@ module JTLoader
                 if(found) then
                     call jsoncore%get(attributePointer, dpi)
                     tecnicos(i)%dpi = dpi
+                    read(dpi, *) dpi_int
+                    write(*, '(A, I0)', advance='no') 'dpi_int: ', dpi_int
                 end if
 
                 !NOMBRE

@@ -10,9 +10,10 @@ program Main
     character(100) :: username, pass
     character(100) :: Cuser = 'admin'
     character(100) :: Cpass = 'admin'
-    call InitMenu()
+    call ModSuc()
 
     contains
+    !Completo
     subroutine InitMenu()
         print*, ''
         print*, '1. Login Admin'
@@ -35,6 +36,7 @@ program Main
         end do
     end subroutine
 
+    !Completo
     subroutine LoginAD()
         loggedIn = .false.
 
@@ -55,6 +57,7 @@ program Main
         end if
     end subroutine 
 
+    !Completo
     subroutine LoginSUC()
         loggedIn = .false.
 
@@ -76,7 +79,7 @@ program Main
         end if
     end subroutine
 
-
+    !Falta: Sucursales y reportes
     subroutine ModAdmin()
         print*, ' ' 
         print*, '1. Cargar archivos'
@@ -105,6 +108,7 @@ program Main
         end do
     end subroutine
 
+    !Falta: Cargar Rutas
     subroutine cargasAD()
         print*, ' '
         print*, '1. Cargar Sucursales'
@@ -132,4 +136,30 @@ program Main
         end do
     end subroutine
 
+    subroutine ModSuc()
+        print*, '1. Cargar Tecnicos'
+        print*, '2. Generar recorrido optimo'
+        print*, '3. Buscar Tecnico'
+        print*, '4. Listar Tecnicos'
+        print*, '5. Reportes'
+
+        do 
+            write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion(MODSUC): '
+            read*, choice
+            print*, ' '
+
+            select case(choice)
+            case(1)
+                call LoadJT()
+            case(2)
+                print*, 'Se llama a Generar recorrido optimo'
+            case(3)
+                print*, 'Se llama a Buscar Tecnico'
+            case(4)
+                print*, 'Se llama a Listar Tecnicos'
+            case(5)
+                print*, 'Se llama a Reportes'
+            end select
+        end do
+    end subroutine
 end program Main
