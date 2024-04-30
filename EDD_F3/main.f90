@@ -1,5 +1,7 @@
 program Main
     use JSLoader
+    use JRLoader
+    use JTLoader
 
     implicit none
     integer :: choice
@@ -8,7 +10,7 @@ program Main
     character(100) :: username, pass
     character(100) :: Cuser = 'admin'
     character(100) :: Cpass = 'admin'
-    call InitMenu()
+    call cargasAD()
 
     contains
     subroutine InitMenu()

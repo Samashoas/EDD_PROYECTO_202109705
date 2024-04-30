@@ -1,5 +1,5 @@
 Tecnicos
-    carga masiva
+    *carga masiva (funciona con dpi como character)
     tabla hash
     tecnico especifico
     Listar Tecnicos
@@ -18,7 +18,7 @@ Blockchain
     Almacenamiento ruta optima en bloque
     Persistencia de datos
 Rutas
-    Carga masiva
+    Carga masiva - pendiente
 Reportes
     Grafo Sucursales y rutas
     Top 5 tecnicos con mas trabajo
@@ -29,5 +29,11 @@ Reportes
 Documentacion
     Manual tecnico y usuario
 
-
+Sucursales
 C:\Users\jpsam\OneDrive\Escritorio\SucursalesP.json
+
+Tecnicos
+C:\Users\jpsam\OneDrive\Escritorio\TecnicosP.json
+
+Rutas
+C:\Users\jpsam\OneDrive\Escritorio\RutasP.json

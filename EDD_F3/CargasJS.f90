@@ -26,7 +26,7 @@ module JSLoader
 
             call json%initialize()
             call json%load(filename=trim(filename))
-            call json%print
+            call json%print()
             print*, ''
 
             call json%info('',n_children=size)
