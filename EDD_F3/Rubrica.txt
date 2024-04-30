@@ -1,11 +1,11 @@
 Tecnicos
     *carga masiva (funciona con dpi como character)
-    tabla hash
+    tabla hash (agregada)
     tecnico especifico
     Listar Tecnicos
 Sucursales
     *carga masiva
-    Implementacion de arbol(ABB, AVL, B)
+    Implementacion de arbol(ABB, AVL, B) (agregada)
     Ruta minima distancia
     Ruta maxima de impresoras
     Ruta recomendada
@@ -13,7 +13,7 @@ Sucursales
     Encriptar password
 Blockchain
     Implementacion de blockchain
-    Arbol Merkle
+    Arbol Merkle (agregada)
     Almacenamiento bloques Json
     Almacenamiento ruta optima en bloque
     Persistencia de datos
@@ -37,3 +37,26 @@ C:\Users\jpsam\OneDrive\Escritorio\TecnicosP.json
 
 Rutas
 C:\Users\jpsam\OneDrive\Escritorio\RutasP.json
+
+Tabla Hash
+program main
+    use hash_table_m
+    implicit none
+
+    type(HashTable) :: table
+    integer, parameter :: long = selected_int_kind(4)
+
+    call table%insert(int(5, kind=long))
+    call table%insert(int(522, kind=long))
+    call table%insert(int(16, kind=long))
+    call table%insert(int(1, kind=long))
+    call table%insert(int(18, kind=long))
+    call table%insert(int(29, kind=long))
+    call table%insert(int(42, kind=long))
+    call table%insert(int(500, kind=long))
+    call table%insert(int(60, kind=long))
+    call table%insert(int(70, kind=long))
+    call table%insert(int(1, kind=long))
+    call table%print()
+    call table%search(5)
+end program main

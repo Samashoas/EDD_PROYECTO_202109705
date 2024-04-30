@@ -4,19 +4,20 @@ program Main
     use JTLoader
 
     implicit none
-    integer :: choice
+    integer :: choice, i, userSUC
     
     Logical :: loggedIn
     character(100) :: username, pass
     character(100) :: Cuser = 'admin'
     character(100) :: Cpass = 'admin'
-    call cargasAD()
+    call InitMenu()
 
     contains
     subroutine InitMenu()
         print*, ''
-        print*, '1. Login'
-        print*, '2. Exit'
+        print*, '1. Login Admin'
+        print*, '2. Login Sucursal'
+        print*, '3. Exit'
 
         do 
             write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion(INIT): '
@@ -25,14 +26,16 @@ program Main
 
             select case(choice)
             case(1)
-                call Login()
+                call LoginAD()
             case(2)
+                call LoginSUC()
+            case(3)
                 exit
             end select
         end do
     end subroutine
 
-    subroutine Login()
+    subroutine LoginAD()
         loggedIn = .false.
 
         write(*, '(A)', advance='no') 'Enter user: '
@@ -47,12 +50,32 @@ program Main
             print*, 'Bienvenido ', username
             call ModAdmin()
         else
-            print*, 'Wrong User or password'
-            print*, ''
-            print*, '1. Login'
-            print*, '2. Extit'
+            print*, 'Usuario o contraseña incorrectos'
+            call InitMenu()
         end if
     end subroutine 
+
+    subroutine LoginSUC()
+        loggedIn = .false.
+
+        write(*, '(A)', advance='no') 'Enter user: '
+        read*, userSUC
+
+        write(*, '(A)', advance='no') 'Enter password: '
+        read*, pass
+
+        do i = 1, size(sucursales)
+            if(userSUC == sucursales(i)%id .and. pass == sucursales(i)%password)then
+                print*, 'Bienvenido sucursal #', sucursales(i)%id
+                loggedIn = .true.
+            end if
+        end do
+        if(.not. loggedIn) then
+            print*, 'wrong user or password'
+            call InitMenu()
+        end if
+    end subroutine
+
 
     subroutine ModAdmin()
         print*, ' ' 

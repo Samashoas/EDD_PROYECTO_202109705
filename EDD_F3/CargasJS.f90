@@ -66,7 +66,7 @@ module JSLoader
                 end if
 
                 if(found) then
-                    print*, 'id: ', sucursales(i)%id
+                    write(*, '(A, I0)') 'id: ', sucursales(i)%id
                     print*, 'departamento: ', trim(sucursales(i)%departamento)
                     print*, 'direccion: ', trim(sucursales(i)%direccion)
                     print*, 'password: ', trim(sucursales(i)%password)
