@@ -23,7 +23,7 @@ module JTLoader
             character(len=:), allocatable :: dpi, nombre, apellido, genero, direccion
             integer(kind=int64) :: dpi_int
 
-            write (*, '(A, I0, A)', advance='no') 'Ingrese la direccion del archivo JSON: '
+            write (*, '(A, I0, A)', advance='no') 'Ingrese JSON de Tecnicos: '
             read(*, '(A)') filename
 
             call json%initialize()
@@ -90,7 +90,7 @@ module JTLoader
                 end if
 
                 if(found) then
-                    print*, 'id: ', trim(tecnicos(i)%dpi)
+                    print*, 'dpi: ', trim(tecnicos(i)%dpi)
                     print*, 'nombre: ', trim(tecnicos(i)%nombre)
                     print*, 'apellido: ', trim(tecnicos(i)%apellido)
                     print*, 'genero: ', trim(tecnicos(i)%genero)
@@ -100,8 +100,11 @@ module JTLoader
                 end if
             end do
 
-            print*, '1. Cargar Sucursales'
-            print*, '2. Cargar Rutas'
-            print*, '3. Salir'
+            print*, '1. Cargar Tecnicos'
+            print*, '2. Generar recorrido optimo'
+            print*, '3. Buscar Tecnico'
+            print*, '4. Listar Tecnicos'
+            print*, '5. Reportes'
+            print*, '6. exit'
         end subroutine
 end module JTLoader

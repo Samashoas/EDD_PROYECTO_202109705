@@ -21,7 +21,7 @@ module JSLoader
 
             character(len=:), allocatable :: departamento, direccion, password
 
-            write (*, '(A, I0, A)', advance='no') 'Ingrese la direccion del archivo JSON: '
+            write (*, '(A, I0, A)', advance='no') 'Ingrese JSON de Sucursales: '
             read(*, '(A)') filename
 
             call json%initialize()

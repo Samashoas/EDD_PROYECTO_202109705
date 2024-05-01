@@ -1,8 +1,8 @@
 Tecnicos
     *carga masiva 
     tabla hash (agregada)
-    tecnico especifico
-    Listar Tecnicos
+    *tecnico especifico
+    *Listar Tecnicos
 Sucursales
     *carga masiva
     Implementacion de arbol(ABB, AVL, B) (agregada)
@@ -10,7 +10,7 @@ Sucursales
     Ruta maxima de impresoras
     Ruta recomendada
     Ganancias y costos
-    Encriptar password
+    *Encriptar password
 Blockchain
     Implementacion de blockchain
     Arbol Merkle (agregada)

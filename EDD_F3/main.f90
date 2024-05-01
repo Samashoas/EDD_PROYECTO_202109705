@@ -2,15 +2,19 @@ program Main
     use JSLoader
     use JRLoader
     use JTLoader
+    use OPSUC
 
     implicit none
-    integer :: choice, i, userSUC
+    integer :: choice, i, userSUC, Long, Code
+    character(len=20) :: passCoded
+    character(len=1) :: char
+    real :: seed
     
     Logical :: loggedIn
     character(100) :: username, pass
     character(100) :: Cuser = 'admin'
     character(100) :: Cpass = 'admin'
-    call ModSuc()
+    call InitMenu()
 
     contains
     !Completo
@@ -52,7 +56,7 @@ program Main
             print*, 'Bienvenido ', username
             call ModAdmin()
         else
-            print*, 'Usuario o contraseña incorrectos'
+            print*, 'wrong user or password'
             call InitMenu()
         end if
     end subroutine 
@@ -67,10 +71,22 @@ program Main
         write(*, '(A)', advance='no') 'Enter password: '
         read*, pass
 
+        seed = 2
+        Long = len_trim(pass)
+        do i = 1, Long
+            char = pass(i:i)
+            Code = ichar(char) + nint(seed)
+            passCoded = trim(passCoded) // achar(mod(Code, 127))
+        end do
+
+        print*, 'Encrypted pass: ', trim(passCoded)
+
         do i = 1, size(sucursales)
             if(userSUC == sucursales(i)%id .and. pass == sucursales(i)%password)then
                 print*, 'Bienvenido sucursal #', sucursales(i)%id
+                print*, ' '
                 loggedIn = .true.
+                call ModSuc()
             end if
         end do
         if(.not. loggedIn) then
@@ -101,8 +117,9 @@ program Main
                 print*, 'Se llama a Reportes'
             case(4)
                 print*, ''
-                print*, '1. Login'
-                print*, '2. Extit'
+                print*, '1. Login Admin'
+                print*, '2. Login Sucursal'
+                print*, '3. Exit'
                 exit
             end select
         end do
@@ -142,6 +159,7 @@ program Main
         print*, '3. Buscar Tecnico'
         print*, '4. Listar Tecnicos'
         print*, '5. Reportes'
+        print*, '6. exit'
 
         do 
             write(*, '(A, I0, A)', advance='no') 'Seleccione una opcion(MODSUC): '
@@ -154,11 +172,17 @@ program Main
             case(2)
                 print*, 'Se llama a Generar recorrido optimo'
             case(3)
-                print*, 'Se llama a Buscar Tecnico'
+                call buscar()
             case(4)
-                print*, 'Se llama a Listar Tecnicos'
+                call listar()
             case(5)
                 print*, 'Se llama a Reportes'
+            case(6)
+                print*, ''
+                print*, '1. Login Admin'
+                print*, '2. Login Sucursal'
+                print*, '3. Exit'
+                exit
             end select
         end do
     end subroutine
